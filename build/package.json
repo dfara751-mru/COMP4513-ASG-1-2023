@@ -1,7 +1,7 @@
 {
   "name": "build",
   "version": "0.1.0",
-  "homepage": "https://dfara751-mru.github.io/build",
+  "homepage": "https://comp4513-asg1.github.io/build",
   "private": true,
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.5",
