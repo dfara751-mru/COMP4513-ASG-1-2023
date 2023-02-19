@@ -1,23 +1,20 @@
-import logo from './logo.svg';
-import './App.css';
+import logo from "./logo.svg";
+import "./App.css";
+import React, { useEffect, useState } from "react";
+import * as cloneDeep from "lodash/cloneDeep";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+
+    // style={{backgroundImage: 'url(https://unsplash.com/photos/nLl5sJnElxY)'
+    <div
+      className="min-height-full min-w-full h-[100%]"
+      
+    >
+      <div>Header</div>
+      <div>Movie Filter</div>
+      <div>List/Matches</div>
+      <div>Favorites</div>
     </div>
   );
 }
