@@ -10,13 +10,13 @@ function App() {
 
     // style={{backgroundImage: 'url(https://unsplash.com/photos/nLl5sJnElxY)'}}
     <div
-      className="bg-cover bg-center w-full h-full grid grid-col-3 grid-rows-4 justify-items-center bg-local gap-5"
+      className="grid gap-1 grid-col-3 grid-rows-5 bg-cover bg-center w-full h-full justify-items-center bg-local gap-5"
       style={{backgroundImage: `url(${theatreImage})` }}
     >
-      {/* <div className="height-full w-full bg-red-600 ">Header</div>
-      <div className="height-full w-full bg-blue-600">Movie Filter</div>
-      <div className="height-full w-full bg-yellow-600">List/Matches</div>
-      <div className="height-full w-full bg-green-600">Favorites</div> */}
+      <div className="w-full h-24 min-h-[3] rounded-lg bg-red-600 col-span-3">Header</div>
+      <div className="w-full h-full min-w-[150px] min-h-[50px] rounded-lg bg-blue-600 row-span-4">Movie Filter</div>
+      <div className="min-w-[150px] min-h-[50px] rounded-lg bg-yellow-600">List/Matches</div>
+      <div className="min-w-[150px] min-h-[50px] rounded-lg bg-green-600">Favorites</div>
     </div>
   );
 }
