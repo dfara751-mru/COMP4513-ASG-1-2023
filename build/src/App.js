@@ -6,6 +6,25 @@ import theatreImage from "./theatre.jpg"
 
 function App() {
 
+  useEffect( () => {
+  if (localStorage.getItem('movies') == null){
+    console.log("Calling API! Hope it doesn't spam Randy's server... :)");
+
+    const url = "https://www.randyconnolly.com/funwebdev/3rd/api/movie/movies-brief.php?limit=20" //change limit to 200 at the end
+
+    fetch(url)
+    .then(resp => resp.json())
+    .then(data => localStorage.setItem("movies", JSON.stringify(data)))
+    .catch(error => console.log(error));
+
+
+    // To retreive movie data, try something like: let x = JSON.parse(localSTorage.getItem('movies'))
+
+  } else {
+    console.log("Not Calling API - We got the Data we need.");
+  }
+  });
+
   return (
 
     // style={{backgroundImage: 'url(https://unsplash.com/photos/nLl5sJnElxY)'}}
