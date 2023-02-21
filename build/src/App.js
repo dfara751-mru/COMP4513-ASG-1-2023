@@ -38,16 +38,15 @@ function App() {
       }
     };
     // invoke the async function
-    
+
     getData();
   }, []);
 
-// style={{backgroundImage: 'url(https://unsplash.com/photos/nLl5sJnElxY)'}}
+  //note make sure to use cols in parent and col or row in child.
+  // style={{backgroundImage: 'url(https://unsplash.com/photos/nLl5sJnElxY)'}}
   return (
-  
-
     <main
-      className="grid gap-1  grid-cols-5 grid-rows-5 bg-cover bg-center w-full h-full justify-items-center bg-local gap-5"
+      className="grid gap-1 grid-cols-5 grid-rows-5 bg-cover bg-center w-full h-full justify-items-center bg-local gap-5"
       style={{ backgroundImage: `url(${theatreImage})` }}
     >
       <HeaderApp />
@@ -56,10 +55,10 @@ function App() {
       </Routes> */}
 
       {/* <div className="w-full h-24 min-h-[3] rounded-lg bg-red-600 col-span-3">Header</div> */}
-      <div className="w-full h-full min-w-[150px] min-h-[50px] rounded-lg bg-blue-600 cols-span-3 rows-span-3">
+      <div className="w-full h-full min-w-[150px] min-h-[50px] rounded-lg bg-blue-600">
         Movie Filter
       </div>
-      <div className="cols-span-2 w-full min-w-[150px] min-h-[50px] rounded-lg bg-yellow-600">
+      <div className="col-span-3 row-span-2 w-full min-w-[150px] min-h-[50px] rounded-lg bg-yellow-600">
         List/Matches
       </div>
       <div className="w-full min-w-[150px] min-h-[50px] cols-span-1 rounded-lg bg-green-600">
