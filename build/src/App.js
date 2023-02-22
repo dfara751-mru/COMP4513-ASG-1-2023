@@ -70,10 +70,10 @@ function App() {
   // style={{backgroundImage: 'url(https://unsplash.com/photos/nLl5sJnElxY)'}}
   return (
     <main>
-    <Routes>
-      <Route path="/" exact element={<Home />} />
-      <Route path="/home" exact element={<Home />} />
-    </Routes>
+      <Routes>
+        <Route path="/build" exact element={<Home />} />
+        <Route path="/build/home" exact element={<Home />} />
+      </Routes>
     </main>
 
     // <main
