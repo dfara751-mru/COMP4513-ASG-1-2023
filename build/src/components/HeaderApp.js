@@ -15,8 +15,6 @@ const closeModal = () => {
    setOpen(false);
 }
 
-
-
  return ( 
    <>
     <div className="col-span-5 cols-start-1 flex flex-row justify-around w-full h-24 rounded-b-md bg-red-900 items-center content-center">
@@ -35,8 +33,11 @@ const closeModal = () => {
       >
       
       <div>
-         <p>Test</p>
-         <button onClick={closeModal}>close</button>
+         <h1 className="text-white text-4xl font-mono font-bold italic">ABOUT</h1>
+         <div className='bg-slate-50 m-10 h-60 rounded-md'>
+            <p>We'll put stuff here eventually.</p>
+         </div>
+         <button className="bg-slate-50 rounded-lg w-20 h-10 border-2 border-solid border-black font-mono" onClick={closeModal}>CLOSE</button>
       </div>
 
 
