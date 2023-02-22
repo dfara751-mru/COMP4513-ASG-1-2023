@@ -15,17 +15,22 @@ function App() {
   const [favorites,setFavorites] = React.useState([]);
 
   const saveFavorites = function(movie) {
-    let newFavorites = [];
-    newFavorites = favorites;
-    console.log("saveFavorites");
-    console.log(movie);
-    const favMovie = cloneDeep(movie);
-    newFavorites.push(favMovie)
-     // create deep clone of movie
-    setFavorites(newFavorites); // adds movie to favorites list.
-    console.log("favorites");
-    console.log(favorites);
+
+    if (favorites.findIndex(currentFavMovie => currentFavMovie.id === movie.id) < 0) {
+      let newFavorites = [];
+      newFavorites = favorites;
+      const favMovie = cloneDeep(movie);
+      newFavorites.push(favMovie)
+      setFavorites(newFavorites); // adds movie to favorites list.
+      console.log("favorites");
+      console.log(favorites);
+    } else {
+      console.log("The movie is already in Favorites!");
+    }
+   
   }
+  
+  
 
   useEffect(() => {
     const getData = async () => {
