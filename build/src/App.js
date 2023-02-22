@@ -69,24 +69,20 @@ function App() {
   //note make sure to use cols in parent and col or row in child.
   // style={{backgroundImage: 'url(https://unsplash.com/photos/nLl5sJnElxY)'}}
   return (
-    <main>
-      <Routes>
-        <Route path="/build" exact element={<Home />} />
-        <Route path="/build/home" exact element={<Home />} />
-      </Routes>
-    </main>
+      // <Routes>
+      //   <Route path="/build" exact element={<Home />} />
+      //   <Route path="/build/home" exact element={<Home />} />
+      // </Routes>
 
-    // <main
-    //   className="grid gap-1 grid-cols-5 grid-rows-5 bg-cover bg-center w-full h-full justify-items-center bg-local gap-5"
-    //   style={{ backgroundImage: `url(${theatreImage})` }}
-    // >
-    //   {/* <HeaderApp />
-    //   <Filter/>
-    //   <List movies={movies} saveFavorites={saveFavorites}/>
-    //   <Favorites favorites={favorites}/> */}
-    //   <Routes>
-    //     <Route path="/" exact element={<Home/>} />
-    //   </Routes>
+    <main
+      className="grid gap-1 grid-cols-5 grid-rows-5 bg-cover bg-center w-full h-full justify-items-center bg-local gap-5"
+      style={{ backgroundImage: `url(${theatreImage})` }}
+    >
+      <HeaderApp />
+      <Filter/>
+      <List movies={movies} saveFavorites={saveFavorites}/>
+      <Favorites favorites={favorites}/>
+     
 
     //   {/* <div className="w-full h-24 min-h-[3] rounded-lg bg-red-600 col-span-3">Header</div> */}
     //   {/* <div className="row-span-2 w-full h-full min-w-[150px] min-h-[50px] rounded-lg bg-blue-600">

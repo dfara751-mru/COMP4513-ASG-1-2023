@@ -1,6 +1,7 @@
 import React from "react";
 
 const SingleFavoriteMovie = function (props) {
+
   const handleFavorite = (e) => {
     props.saveFavorites(props.movie);
   };
@@ -18,10 +19,10 @@ const SingleFavoriteMovie = function (props) {
           alt={props.title}
         />
       </figure>
-      <h2 className="title is-6">
-        {props.title} ({props.runtime} min)
-      </h2>
+      <label > {props.title} </label>
     </li>
+
+     /* {props.title} ({props.runtime} min) */
   );
 };
 
