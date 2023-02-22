@@ -1,5 +1,6 @@
 import React from 'react'; 
 import Modal from 'react-modal';
+import { Link } from 'react-router-dom'; 
 
 // Modal code modified from: https://www.npmjs.com/package/react-modal 
  
@@ -18,8 +19,8 @@ const closeModal = () => {
  return ( 
    <>
     <div className="col-span-5 cols-start-1 flex flex-row justify-around w-full h-24 rounded-b-md bg-red-900 items-center content-center">
-      <div className='text-4xl'>🎥</div>
-      <h3 className="text-white text-4xl font-mono font-bold italic">REACT MOVIE SEARCH</h3>
+      <Link to="/build/home"><div className='text-4xl'>🎥</div></Link>
+      <Link to="/build/home"><h3 className="text-white text-4xl font-mono font-bold italic">REACT MOVIE SEARCH</h3></Link>
       <button onClick={openModal} className="bg-slate-50 rounded-lg w-20 h-10 border-2 border-solid border-black font-mono">ABOUT</button>
     </div>
     <Modal
