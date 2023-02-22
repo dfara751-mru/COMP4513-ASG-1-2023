@@ -9,6 +9,7 @@ import List from "./components/List.js"
 import React, { useEffect, useState } from "react";
 
 import { Route, Routes } from "react-router-dom";
+import Favorites from "./components/Favorites";
 
 function App() {
   const [movies, setMovies] = React.useState([]);
@@ -74,6 +75,7 @@ function App() {
       <HeaderApp />
       <Filter/>
       <List movies={movies} saveFavorites={saveFavorites}/>
+      <Favorites favorites={favorites}/>
       {/* <Routes>
         <Route path="/" exact element={<Home/>} />
       </Routes> */}
@@ -85,9 +87,9 @@ function App() {
       {/* <div className="col-span-3 row-span-4 w-full min-w-[150px] min-h-[50px] rounded-lg bg-yellow-600">
         List/Matches
       </div> */}
-      <div className="w-full min-w-[150px] min-h-[50px] cols-span-1 rounded-lg bg-green-600">
+      {/* <div className="w-full min-w-[150px] min-h-[50px] cols-span-1 rounded-lg bg-green-600">
         Favorites
-      </div>
+      </div> */}
     </main>
   );
 }
