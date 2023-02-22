@@ -1,21 +1,46 @@
 import React from 'react'; 
-import {useState} from 'react';
-import About from './About.js'
+import Modal from 'react-modal';
 
-// Modal code modified from: https://biagio.dev/posts/tailwindcss-react-modal
+// Modal code modified from: https://www.npmjs.com/package/react-modal 
  
 const HeaderApp = function (props) { 
 
 const [open, setOpen] = React.useState(false);
+
+const openModal = () => {
+   setOpen(true);
+}
+
+const closeModal = () => {
+   setOpen(false);
+}
+
+
 
  return ( 
    <>
     <div className="col-span-5 cols-start-1 flex flex-row justify-around w-full h-24 rounded-b-md bg-red-900 items-center content-center">
       <div className='text-4xl'>🎥</div>
       <h3 className="text-white text-4xl font-mono font-bold italic">REACT MOVIE SEARCH</h3>
-      <button onClick={() => setOpen(true)} className="bg-slate-50 rounded-lg w-20 h-10 border-2 border-solid border-black font-mono">ABOUT</button>
+      <button onClick={openModal} className="bg-slate-50 rounded-lg w-20 h-10 border-2 border-solid border-black font-mono">ABOUT</button>
     </div>
-    <About open={open} onClose={() => setOpen(false)}/>
+    <Modal
+      className="fixed right-0 h-full bg-red-900 shadow-lg w-full max-w-screen-sm p-4 rounded-l-md mr-50"
+      isOpen={open}
+      onRequestClose={closeModal}
+      contentLabel="About"
+      style={{overlay:{
+         backgroundColor: 'rgba(0, 0, 0, 0.75)' //change modal overlay color to black
+      }}}
+      >
+      
+      <div>
+         <p>Test</p>
+         <button onClick={closeModal}>close</button>
+      </div>
+
+
+   </Modal>
     </>
  ); 
 } 
