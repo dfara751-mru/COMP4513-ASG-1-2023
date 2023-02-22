@@ -6,10 +6,6 @@ const SingleMovie = function (props) {
     
 
     const handleFavorite = (e) => {
-        console.log("props.movie");
-        console.log(props.movie);
-        //console.log("e.target.value");
-        //console.log(e.target.value);
         props.saveFavorites(props.movie);
     }
 
