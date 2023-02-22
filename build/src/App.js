@@ -2,13 +2,30 @@ import logo from "./logo.svg";
 import "./App.css";
 import * as cloneDeep from "lodash/cloneDeep";
 import theatreImage from "./theatre.jpg";
-import HeaderApp from "./components/HeaderApp";
+import HeaderApp from "./components/HeaderApp.js";
+import Filter from "./components/Filter.js";
+import List from "./components/List.js"
 
 import React, { useEffect, useState } from "react";
+
 import { Route, Routes } from "react-router-dom";
 
 function App() {
-  const [movies, setMovies] = useState([]);
+  const [movies, setMovies] = React.useState([]);
+  const [favorites,setFavorites] = React.useState([]);
+
+  const saveFavorites = function(movie) {
+    let newFavorites = [];
+    newFavorites = favorites;
+    console.log("saveFavorites");
+    console.log(movie);
+    const favMovie = cloneDeep(movie);
+    newFavorites.push(favMovie)
+     // create deep clone of movie
+    setFavorites(newFavorites); // adds movie to favorites list.
+    console.log("favorites");
+    console.log(favorites);
+  }
 
   useEffect(() => {
     const getData = async () => {
@@ -50,17 +67,19 @@ function App() {
       style={{ backgroundImage: `url(${theatreImage})` }}
     >
       <HeaderApp />
+      <Filter/>
+      <List movies={movies} saveFavorites={saveFavorites}/>
       {/* <Routes>
         <Route path="/" exact element={<Home/>} />
       </Routes> */}
 
       {/* <div className="w-full h-24 min-h-[3] rounded-lg bg-red-600 col-span-3">Header</div> */}
-      <div className="w-full h-full min-w-[150px] min-h-[50px] rounded-lg bg-blue-600">
+      {/* <div className="row-span-2 w-full h-full min-w-[150px] min-h-[50px] rounded-lg bg-blue-600">
         Movie Filter
-      </div>
-      <div className="col-span-3 row-span-2 w-full min-w-[150px] min-h-[50px] rounded-lg bg-yellow-600">
+      </div> */}
+      {/* <div className="col-span-3 row-span-4 w-full min-w-[150px] min-h-[50px] rounded-lg bg-yellow-600">
         List/Matches
-      </div>
+      </div> */}
       <div className="w-full min-w-[150px] min-h-[50px] cols-span-1 rounded-lg bg-green-600">
         Favorites
       </div>
