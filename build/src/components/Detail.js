@@ -39,19 +39,17 @@ const closeModal = () => {
         <div className="bg-slate-50 rounded-md w-full m-5 h-full p-6 m-6">
             <h1 className="text-xl font-mono font-bold italic">{props.movie.title}</h1>
             <h3 className="font-mono">{props.movie.tagline}</h3>
-            <p className="font-mono">Released: {props.movie.release_date}</p>
-            <p className="font-mono">Runtime: {props.movie.runtime}</p>
-            <p className="font-mono">Revenue: ${props.movie.revenue.toFixed(2).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')}</p>
-            <p className="font-mono">Overview:</p>
+            <br/>
+            <p className="font-mono"><strong>Released:</strong> {props.movie.release_date}</p>
+            <p className="font-mono"><strong>Runtime:</strong> {props.movie.runtime} minutes</p>
+            <p className="font-mono"><strong>Revenue:</strong> ${props.movie.revenue.toFixed(2).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')}</p>
+            <br/>
+            <p className="font-mono"><strong>Overview:</strong></p>
             <p className="font-mono">{props.movie.details.overview}</p>
 
-            <div>
-              
-            </div>
+        </div>
+        <div className="bg-slate-50 rounded-md m-5 h-full p-6 m-6">
 
-            <div>
-
-            </div>
         </div>
     </div>
 
