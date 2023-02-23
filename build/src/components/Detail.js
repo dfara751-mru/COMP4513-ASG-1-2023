@@ -25,7 +25,7 @@ const closeModal = () => {
 
 //const poster = `https://image.tmdb.org/t/p/w154/${this.props.currentMovie.poster}`;
 
-
+// currency format code taken from: https://stackoverflow.com/questions/55556221/how-do-you-format-a-number-to-currency-when-using-react-native-expo 
   return (
     <>
     <HeaderApp />
@@ -39,6 +39,16 @@ const closeModal = () => {
         <div className="bg-slate-50 rounded-md w-full m-5 h-full p-6 m-6">
             <h1 className="text-xl font-mono font-bold italic">{props.movie.title}</h1>
             <h3 className="font-mono">{props.movie.tagline}</h3>
+            <br/>
+            <p className="font-mono"><strong>Released:</strong> {props.movie.release_date}</p>
+            <p className="font-mono"><strong>Runtime:</strong> {props.movie.runtime} minutes</p>
+            <p className="font-mono"><strong>Revenue:</strong> ${props.movie.revenue.toFixed(2).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')}</p>
+            <br/>
+            <p className="font-mono"><strong>Overview:</strong></p>
+            <p className="font-mono">{props.movie.details.overview}</p>
+
+        </div>
+        <div className="bg-slate-50 rounded-md m-5 h-full p-6 m-6">
 
         </div>
     </div>
