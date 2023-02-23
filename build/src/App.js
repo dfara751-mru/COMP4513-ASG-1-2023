@@ -17,14 +17,7 @@ function App() {
   const [favorites, setFavorites] = React.useState([]);
 
   const sortMovies = function (newMovies) {
-    console.log("newMovies");
-    console.log(newMovies);
-    // Create deep clone of photo array from state.
-    // We will use a lodash function for that task.
     const sortedMovies = cloneDeep(newMovies);
-
-    console.log("sortedMovies");
-    console.log(sortedMovies);
     setMovies(sortedMovies); // update state
   };
 
@@ -38,7 +31,9 @@ function App() {
       newFavorites = favorites;
       const favMovie = cloneDeep(movie);
       newFavorites.push(favMovie);
+      console.log(newFavorites);
       setFavorites(newFavorites); // adds movie to favorites list.
+      console.log(favorites)
     } else {
       console.log("The movie is already in Favorites!");
     }
@@ -63,7 +58,6 @@ function App() {
             const rawData = localStorage.getItem("movies");
             if (rawData) {
               const data = JSON.parse(rawData);
-              //setMovies(movieData);
               initiateTitleSort(data);
             }
           }
@@ -80,8 +74,7 @@ function App() {
         else return 0;
       });
       setMovies(newMovies);
-    }
-
+    };
 
     // invoke the async function
 
