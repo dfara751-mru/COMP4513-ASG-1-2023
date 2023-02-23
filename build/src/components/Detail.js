@@ -2,8 +2,13 @@ import React from "react";
 import Modal from 'react-modal';
 import { Link } from 'react-router-dom';
 import HeaderApp from "./HeaderApp.js";
+import Footer from"./Footer";
+
+Modal.setAppElement('#root') //gets rid of an error regarding Modal
 
 const Detail = props => {
+
+// Modal code modified from: https://www.npmjs.com/package/react-modal 
 
 const [open, setOpen] = React.useState(false);
 
@@ -16,20 +21,50 @@ const closeModal = () => {
 
 }
 
-//const id = this.props.currentMovie;
+
 
 //const poster = `https://image.tmdb.org/t/p/w154/${this.props.currentMovie.poster}`;
-
 
 
   return (
     <>
     <HeaderApp />
-    <div className="flex flex-row bg-red-900 shadow-lg min-h-screen justify-center items-center m-6 rounded-md">
-        <div className="bg-slate-50 rounded-md w-full m-5">
-            something
+    <div className="col-span-5 row-span-5 min-w-[1000px] flex flex-row min- bg-red-900 shadow-lg justify-center items-center m-6 rounded-md">
+    <img
+            onClick={openModal}
+            className="object-scale-down w-30 h-30 rounded-md m-6 "
+            src={"https://image.tmdb.org/t/p/w342" + props.movie.poster}
+            alt={props.movie.title}
+          />
+        <div className="bg-slate-50 rounded-md w-full m-5 h-full p-6 m-6">
+            <h1 className="text-xl font-mono font-bold italic">{props.movie.title}</h1>
+            <h3 className="font-mono">{props.movie.tagline}</h3>
+
         </div>
     </div>
+
+    <Footer />
+
+    <Modal
+      className="fixed inset-x-0 mx-auto h-full shadow-lg w-full max-w-screen-sm p-4 mr-50"
+      isOpen={open}
+      onRequestClose={closeModal}
+      contentLabel="Poster Image"
+      style={{overlay:{
+         backgroundColor: 'rgba(0, 0, 0, 0.75)' //change modal overlay color to black
+      }}}
+      >
+      
+      <div>
+        <img
+            className="object-scale-down rounded-sm "
+            src={"https://image.tmdb.org/t/p/w500" + props.movie.poster}
+            alt={props.movie.title}
+          />
+      </div>
+
+
+   </Modal>
     </>
   );
 };
