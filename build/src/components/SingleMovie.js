@@ -11,7 +11,7 @@ const SingleMovie = function (props) {
     <li className="inline-block w-full is-one-third-desktop is-half-tablet">
       <div className="card-image">
         <figure className="image is-2by3">
-          <Link to="/Detail">
+          <Link to="/build/detail" state={props.movie}>
             <img
               className="object-scale-down w-30 h-30"
               src={"https://image.tmdb.org/t/p/w92" + props.poster}
@@ -26,7 +26,7 @@ const SingleMovie = function (props) {
         <label>{props.movie.ratings.average}</label>
         <label>{props.movie.ratings.popularity}</label>
       </div>
-      <Link to="/build/Detail"><button >View</button></Link>
+      <Link to="/build/Detail" state={props.movie}><button >View</button></Link>
       <button onClick={handleFavorite}>❤</button>
     </li>
 
