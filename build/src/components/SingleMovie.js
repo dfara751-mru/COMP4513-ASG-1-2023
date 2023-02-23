@@ -2,12 +2,9 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 const SingleMovie = function (props) {
-  const handleFavorite = (e) => {
-    props.saveFavorites(props.movie);
-  };
 
-  const handleView = (e) => {
-    console.log("handle View!");
+  const handleFavorite = () => {
+    props.saveFavorites(props.movie);
   };
 
   return (
@@ -29,7 +26,7 @@ const SingleMovie = function (props) {
         <label>{props.movie.ratings.average}</label>
         <label>{props.movie.ratings.popularity}</label>
       </div>
-      <Link to="/Detail"><button >View</button></Link>
+      <Link to="/build/Detail"><button >View</button></Link>
       <button onClick={handleFavorite}>❤</button>
     </li>
 

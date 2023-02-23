@@ -5,12 +5,16 @@ import theatreImage from "./theatre.jpg";
 import HeaderApp from "./components/HeaderApp.js";
 import Filter from "./components/Filter.js";
 import List from "./components/List.js";
+import Favorites from "./components/Favorites";
 import Home from "./components/Home.js";
+import BrowseMovies from "./components/BrowseMovies";
+import Detail from "./components/Detail"
 
 import React, { useEffect, useState } from "react";
 
 import { Route, Routes } from "react-router-dom";
-import Favorites from "./components/Favorites";
+
+
 
 function App() {
   const [movies, setMovies] = React.useState([]);
@@ -84,39 +88,41 @@ function App() {
   //note make sure to use cols in parent and col or row in child.
   // style={{backgroundImage: 'url(https://unsplash.com/photos/nLl5sJnElxY)'}}
   return (
-    // <Routes>
-    //   <Route path="/build" exact element={<Home />} />
-    //   <Route path="/build/home" exact element={<Home />} />
-    // </Routes>
+    <Routes>
+      <Route path="/build" exact element={<BrowseMovies movies={movies} favorites={favorites} saveFavorites={saveFavorites} sortMovies={sortMovies}/>} />
+      <Route path="/build/home" exact element={<Home />} />
+      <Route path="/build/detail" exact element={<Detail />} />
+      <Route path="/build/browse" exact element={<BrowseMovies movies={movies} favorites={favorites} saveFavorites={saveFavorites} sortMovies={sortMovies}/>} />
+    </Routes>
 
-    <main
-      className="grid gap-1 grid-cols-5 grid-rows-5 bg-cover bg-center w-full h-full justify-items-center bg-local gap-5"
-      style={{ backgroundImage: `url(${theatreImage})` }}
-    >
-      <HeaderApp />
-      <Filter />
-      <List
-        movies={movies}
-        saveFavorites={saveFavorites}
-        sortMovies={sortMovies}
-      />
-      <Favorites favorites={favorites} />
-      //{" "}
-      {/* <div className="w-full h-24 min-h-[3] rounded-lg bg-red-600 col-span-3">Header</div> */}
-      //{" "}
-      {/* <div className="row-span-2 w-full h-full min-w-[150px] min-h-[50px] rounded-lg bg-blue-600">
-    //     Movie Filter
-    //   </div> */}
-      //{" "}
-      {/* <div className="col-span-3 row-span-4 w-full min-w-[150px] min-h-[50px] rounded-lg bg-yellow-600">
-    //     List/Matches
-    //   </div> */}
-      //{" "}
-      {/* <div className="w-full min-w-[150px] min-h-[50px] cols-span-1 rounded-lg bg-green-600">
-    //     Favorites
-    //   </div> */}
-      //{" "}
-    </main>
+    // <main
+    //   className="grid gap-1 grid-cols-5 grid-rows-5 bg-cover bg-center w-full h-full justify-items-center bg-local gap-5"
+    //   style={{ backgroundImage: `url(${theatreImage})` }}
+    // >
+    //   <HeaderApp />
+    //   <Filter />
+    //   <List
+    //     movies={movies}
+    //     saveFavorites={saveFavorites}
+    //     sortMovies={sortMovies}
+    //   />
+    //   <Favorites favorites={favorites} />
+    //   {" "}
+    //   {/* <div className="w-full h-24 min-h-[3] rounded-lg bg-red-600 col-span-3">Header</div> */}
+    //   {" "}
+    //   {/* <div className="row-span-2 w-full h-full min-w-[150px] min-h-[50px] rounded-lg bg-blue-600">
+    // //     Movie Filter
+    // //   </div> */}
+    //   {" "}
+    //   {/* <div className="col-span-3 row-span-4 w-full min-w-[150px] min-h-[50px] rounded-lg bg-yellow-600">
+    // //     List/Matches
+    // //   </div> */}
+    //   {" "}
+    //   {/* <div className="w-full min-w-[150px] min-h-[50px] cols-span-1 rounded-lg bg-green-600">
+    // //     Favorites
+    // //   </div> */}
+    // {" "}
+    // </main>
   );
 }
 

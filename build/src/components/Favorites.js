@@ -3,9 +3,9 @@ import SingleFavoriteMovie from "./SingleFavoriteMovie.js";
 
 const Favorites = function (props) {
   return (
-    <div className="w-full min-w-[150px] min-h-[50px] cols-span-1 rounded-lg bg-green-600">
+    <div className="block w-full min-w-[150px] min-h-[50px] col-span-1 row-span-3 rounded-lg bg-green-600 overflow-y-auto">
       Favorites
-      <ul>
+      <ul className="block">
         {props.favorites.map((movie) => (
           <SingleFavoriteMovie
             id={movie.id}

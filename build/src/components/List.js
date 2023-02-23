@@ -3,7 +3,6 @@ import SingleMovie from "./SingleMovie.js";
 
 const List = function (props) {
 
-
   const handleSort = (e) => {
     if (e.target.value === "title") {
       sortMoviesByTitle(props);
@@ -62,6 +61,13 @@ const List = function (props) {
 //     console.log(newMovie);
 //     return newMovie;
 //   };
+
+// check filter state
+// if no
+// print normal
+// if yes
+// apply filter from props.info or some kind of state
+// use an already defined array to filter Title properly
 
   return (
     <div className="col-span-3 row-span-4 w-full min-w-[150px] h-auto rounded-lg bg-yellow-600 overflow-y-auto">
