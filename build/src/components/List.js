@@ -6,17 +6,13 @@ const List = function (props) {
 
   const handleSort = (e) => {
     if (e.target.value === "title") {
-      console.log("sort title");
-      console.log(sortMoviesByTitle(props));
+      sortMoviesByTitle(props);
     } else if (e.target.value === "release_date") {
-      console.log("sort year");
-      console.log(sortMoviesByReleaseDate(props));
+      sortMoviesByReleaseDate(props);
     } else if (e.target.value === "ratings") {
-      console.log(sortMoviesByRatings(props));
-      console.log("sort rating");
+      sortMoviesByRatings(props);
     } else if (e.target.value === "ratings.popularity") {
-      console.log("sort popularity");
-      console.log(sortMoviesbyPopularity(props));
+     sortMoviesbyPopularity(props);
     }
   };
 
@@ -56,16 +52,16 @@ const List = function (props) {
     props.sortMovies(newMovies);
   };
 
-  const sortMovies = (inputValue) => {
-    let newMovie = props.movies.sort(function (a, b) {
-      if (a.ratings < b.ratings) return -1;
-      else if (a.ratings > b.ratings) return 1;
-      else return 0;
-    });
-    console.log("in sortmovies Rating");
-    console.log(newMovie);
-    return newMovie;
-  };
+//   const sortMovies = (inputValue) => {
+//     let newMovie = props.movies.sort(function (a, b) {
+//       if (a.ratings < b.ratings) return -1;
+//       else if (a.ratings > b.ratings) return 1;
+//       else return 0;
+//     });
+//     console.log("in sortmovies Rating");
+//     console.log(newMovie);
+//     return newMovie;
+//   };
 
   return (
     <div className="col-span-3 row-span-4 w-full min-w-[150px] h-auto rounded-lg bg-yellow-600 overflow-y-auto">

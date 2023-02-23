@@ -2,9 +2,9 @@ import React from "react";
 
 const SingleFavoriteMovie = function (props) {
 
-  const handleFavorite = (e) => {
-    props.saveFavorites(props.movie);
-  };
+//   const handleFavorite = (e) => {
+//     props.saveFavorites(props.movie);
+//   };
 
   const handleView = (e) => {
     console.log("handle View!");
