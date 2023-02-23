@@ -2,25 +2,69 @@ import React from "react";
 import SingleMovie from "./SingleMovie.js";
 
 const List = function (props) {
+
+
   const handleSort = (e) => {
     if (e.target.value === "title") {
-      let movie = movie.sort(function (a, b) {
-        if (a.title < b.title) return -1;
-        else if (a.title > b.title) return 1;
-        else return 0;
-      });
-      //print sort by title
       console.log("sort title");
-    } else if (e.target.value === "year") {
-      //print sort by year
+      console.log(sortMoviesByTitle(props));
+    } else if (e.target.value === "release_date") {
       console.log("sort year");
-    } else if (e.target.value === "rating") {
-      //print by Rating
+      console.log(sortMoviesByReleaseDate(props));
+    } else if (e.target.value === "ratings") {
+      console.log(sortMoviesByRatings(props));
       console.log("sort rating");
-    } else if (e.target.value === "popularity") {
-      //print by Popularity
+    } else if (e.target.value === "ratings.popularity") {
       console.log("sort popularity");
+      console.log(sortMoviesbyPopularity(props));
     }
+  };
+
+  const sortMoviesByTitle = (props) => {
+    let newMovies = props.movies.sort(function (a, b) {
+      if (a.title < b.title) return -1;
+      else if (a.title > b.title) return 1;
+      else return 0;
+    });
+    props.sortMovies(newMovies);
+  };
+
+  const sortMoviesByReleaseDate = (props) => {
+    let newMovies = props.movies.sort(function (a, b) {
+      if (a.release_date < b.release_date) return -1;
+      else if (a.release_date > b.release_date) return 1;
+      else return 0;
+    });
+    props.sortMovies(newMovies);
+  };
+
+  const sortMoviesByRatings = (props) => {
+    let newMovies = props.movies.sort(function (a, b) {
+      if (a.ratings.average < b.ratings.average) return 1;
+      else if (a.ratings.average > b.ratings.average) return -1;
+      else return 0;
+    });
+    props.sortMovies(newMovies);
+  };
+
+  const sortMoviesbyPopularity = (props) => {
+    let newMovies = props.movies.sort(function (a, b) {
+      if (a.ratings.popularity < b.ratings.popularity) return 1;
+      else if (a.ratings.popularity > b.ratings.popularity) return -1;
+      else return 0;
+    });
+    props.sortMovies(newMovies);
+  };
+
+  const sortMovies = (inputValue) => {
+    let newMovie = props.movies.sort(function (a, b) {
+      if (a.ratings < b.ratings) return -1;
+      else if (a.ratings > b.ratings) return 1;
+      else return 0;
+    });
+    console.log("in sortmovies Rating");
+    console.log(newMovie);
+    return newMovie;
   };
 
   return (
@@ -28,18 +72,17 @@ const List = function (props) {
       List/Matches
       <div>
         <button onClick={handleSort} value="title">
-          {" "}
-          Title{" "}
+          Title
         </button>
-        <button onClick={handleSort} value="year">
+        <button onClick={handleSort} value="release_date">
           {" "}
           Year{" "}
         </button>
-        <button onClick={handleSort} value="rating">
+        <button onClick={handleSort} value="ratings">
           {" "}
           Rating
         </button>
-        <button onClick={handleSort} value="popularity">
+        <button onClick={handleSort} value="ratings.popularity">
           {" "}
           Popularity{" "}
         </button>
