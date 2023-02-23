@@ -57,6 +57,7 @@ const movie = location.state;
         <div className="bg-slate-50 rounded-md m-5 h-full p-6 m-6">
 
         </div>
+        <Link to="/build/browse"><button className="bg-slate-50 rounded-lg w-40 h-10 border-2 border-solid border-black font-mono">BACK TO SEARCH</button></Link>
     </div>
 
     <Footer />
