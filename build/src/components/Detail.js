@@ -110,6 +110,7 @@ const closeModal = () => {
               <br />
               <div className="border-4 rounded-md w-full">
                 Ratings go here
+                
               </div>
               <br/>
               
