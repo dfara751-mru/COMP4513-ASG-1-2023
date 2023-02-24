@@ -5,27 +5,24 @@ const SingleMovie = function (props) {
 
   const handleFavorite = () => {
     props.saveFavorites(props.movie);
+    
   };
 
   return (
-    <li className="inline-block w-full is-one-third-desktop is-half-tablet">
-      <div className="card-image">
-        <figure className="image is-2by3">
-          <Link to="/build/detail" state={props.movie}>
+    <li className="flex  w-full">
+          <Link className="basis-1/4" to="/build/detail" state={props.movie}>
             <img
-              className="object-scale-down w-30 h-30"
+              className="basis-1/4 flex-shrink-0"
               src={"https://image.tmdb.org/t/p/w92" + props.poster}
               alt={props.title}
             />
           </Link>
-        </figure>
-      </div>
-      <div className="card-content has-text-centered content-rectangle">
+      
         <label>{props.title}</label>
         <label>{props.movie.release_date}</label>
         <label>{props.movie.ratings.average}</label>
-        <label>{props.movie.ratings.popularity}</label>
-      </div>
+        <label className="flex-row-reverse">{props.movie.ratings.popularity}</label>
+      
       <Link to="/build/Detail" state={props.movie}><button >View</button></Link>
       <button onClick={handleFavorite}>❤</button>
     </li>

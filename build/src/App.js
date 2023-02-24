@@ -1,15 +1,9 @@
 import logo from "./logo.svg";
 import "./App.css";
 import * as cloneDeep from "lodash/cloneDeep";
-import theatreImage from "./theatre.jpg";
-import HeaderApp from "./components/HeaderApp.js";
-import Filter from "./components/Filter.js";
-import List from "./components/List.js";
-import Favorites from "./components/Favorites";
 import Home from "./components/Home.js";
 import BrowseMovies from "./components/BrowseMovies";
 import Detail from "./components/Detail"
-
 import React, { useEffect, useState } from "react";
 
 import { Route, Routes } from "react-router-dom";
@@ -17,12 +11,13 @@ import { Route, Routes } from "react-router-dom";
 
 
 function App() {
-  const [movies, setMovies] = React.useState([]);
+  const [moviesData, setMoviesData] = React.useState([]);
   const [favorites, setFavorites] = React.useState([]);
+  const[filter, setFilter] = React.useState([]);
 
   const sortMovies = function (newMovies) {
     const sortedMovies = cloneDeep(newMovies);
-    setMovies(sortedMovies); // update state
+    setMoviesData(sortedMovies); // update state
   };
 
   const saveFavorites = function (movie) {
@@ -35,7 +30,6 @@ function App() {
       newFavorites = favorites;
       const favMovie = cloneDeep(movie);
       newFavorites.push(favMovie);
-      console.log(newFavorites);
       setFavorites(newFavorites); // adds movie to favorites list.
       console.log(favorites)
     } else {
@@ -47,7 +41,7 @@ function App() {
     const getData = async () => {
       try {
         // check if movies is already full.
-        if (movies.length <= 0) {
+        if (moviesData.length <= 0) {
           if (localStorage.getItem("movies") === null) {
             // fetch data and store in local storage.
             console.log("fetch from URL");
@@ -77,7 +71,7 @@ function App() {
         else if (a.title > b.title) return 1;
         else return 0;
       });
-      setMovies(newMovies);
+      setMoviesData(newMovies);
     };
 
     // invoke the async function
@@ -89,10 +83,10 @@ function App() {
   // style={{backgroundImage: 'url(https://unsplash.com/photos/nLl5sJnElxY)'}}
   return (
     <Routes>
-      <Route path="/build" exact element={<BrowseMovies movies={movies} favorites={favorites} saveFavorites={saveFavorites} sortMovies={sortMovies}/>} />
+      <Route path="/build" exact element={<BrowseMovies moviesData={moviesData} favorites={favorites} saveFavorites={saveFavorites} sortMovies={sortMovies}/>} />
       <Route path="/build/home" exact element={<Home />} />
       <Route path="/build/detail" exact element={<Detail />} />
-      <Route path="/build/browse" exact element={<BrowseMovies movies={movies} favorites={favorites} saveFavorites={saveFavorites} sortMovies={sortMovies}/>} />
+      <Route path="/build/browse" exact element={<BrowseMovies moviesData={moviesData} favorites={favorites} saveFavorites={saveFavorites} sortMovies={sortMovies}/>} />
     </Routes>
 
     // <main
