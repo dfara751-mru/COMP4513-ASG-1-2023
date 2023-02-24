@@ -115,6 +115,26 @@ const Filter = function (props) {
           </div>
         </div>
         <div>
+          <input type="radio" name="Filter" value="Rating" />
+          <label htmlFor="Rating"> Rating </label>
+          <div className="flex ">
+            <input
+              onChange={handleLowRating}
+              type="number"
+              name="Less"
+              placeholder="Less"
+              className="w-16"
+            />
+            <input
+              onChange={handleHighRating}
+              type="number"
+              name="Greater"
+              placeholder="Greater"
+              className="w-16 p-1"
+            />
+          </div>
+        </div>
+        <div>
           <button type="submit" className="bg-indigo-500">
             Submit
           </button>
