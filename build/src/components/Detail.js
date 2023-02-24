@@ -68,7 +68,7 @@ const closeModal = () => {
             src={"https://image.tmdb.org/t/p/w342" + movie.poster}
             alt={movie.title}
           />
-        <div className="bg-slate-50 rounded-md w-full m-5 h-full p-6 m-6 grid grid-cols-2 grid-rows-2 gap-5 content-evenly">
+        <div className="bg-slate-50 rounded-md w-full m-5 h-full p-6 m-6 grid grid-cols-2 grid-rows-2 gap-5 content-evenly overflow-y-auto">
           <div>
             
             <h1 className="text-xl font-mono font-bold italic">{movie.title}</h1>
@@ -80,12 +80,20 @@ const closeModal = () => {
             </button>
             <br/>
             <br/>
+            <Link to="/build/browse"><button className="bg-slate-50 rounded-lg w-40 h-10 border-2 border-solid border-black font-mono">BACK TO SEARCH</button></Link>
+            <br/>
+            <br/>
             <p className="font-mono"><strong>Released:</strong> {movie.release_date}</p>
             <p className="font-mono"><strong>Runtime:</strong> {movie.runtime} minutes</p>
             <p className="font-mono"><strong>Revenue:</strong> ${movie.revenue.toFixed(2).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')}</p>
             <br/>
             <p className="font-mono"><strong>Overview:</strong></p>
             <p className="font-mono">{movie.details.overview}</p>
+            <br />
+            <p className="font-mono"><strong>Genres:</strong></p>
+            <ul>
+              {movie.details.genres.map((m) => (<li className="font-mono">{m.name}</li>))}
+            </ul>
             <br />
             <p className="font-mono"><strong>Links:</strong></p>
             <a href={"https://www.themoviedb.org/movie/" + movie.tmdb_id}>TMDB</a>
@@ -104,8 +112,7 @@ const closeModal = () => {
                 Ratings go here
               </div>
               <br/>
-              <Link to="/build/browse"><button className="bg-slate-50 rounded-lg w-40 h-10 border-2 border-solid border-black font-mono">BACK TO SEARCH</button></Link>
-
+              
             </div>
         </div>
     
