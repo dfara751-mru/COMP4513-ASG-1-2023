@@ -12,7 +12,33 @@ const Detail = props => {
 
 // Modal code modified from: https://www.npmjs.com/package/react-modal 
 
+
+// Uses location state to pass a movie in from the list
+const location = useLocation();
+
+const movie = location.state;
+
+const handleFavorite = () => {
+  props.saveFavorites(movie);
+
+  setFav(!faved);
+};
+
+
+const checkFav = () =>{
+  if (props.favorites.find(m => m.id === movie.id) != undefined){
+    return true;
+  }
+  else {
+    return false;
+  }
+}
+
 const [open, setOpen] = React.useState(false);
+
+const [faved, setFav] = React.useState(checkFav);
+
+
 
 const openModal = () => {
    setOpen(true);
@@ -24,10 +50,7 @@ const closeModal = () => {
 }
 
 
-// Uses location state to pass a movie in from the list
-const location = useLocation();
 
-const movie = location.state;
 
 
 //const poster = `https://image.tmdb.org/t/p/w154/${this.props.currentMovie.poster}`;
@@ -51,7 +74,10 @@ const movie = location.state;
             <h1 className="text-xl font-mono font-bold italic">{movie.title}</h1>
             <h3 className="font-mono">{movie.tagline}</h3>
             <br/>
-            <button className="bg-slate-50 rounded-lg w-40 h-10 border-2 border-solid border-black font-mono">FAVORITE</button>
+            <button onClick={handleFavorite} 
+            className={faved ? "bg-slate-200 rounded-lg w-40 h-10 border-2 border-solid border-black font-mono":"bg-slate-50 rounded-lg w-40 h-10 border-2 border-solid border-black font-mono"}>
+            {faved ? "FAVORITED" : "FAVORITE"}
+            </button>
             <br/>
             <br/>
             <p className="font-mono"><strong>Released:</strong> {movie.release_date}</p>
