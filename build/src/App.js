@@ -15,6 +15,9 @@ function App() {
   const [favorites, setFavorites] = React.useState([]);
   const[filter, setFilter] = React.useState([]);
 
+
+  let ratings = []; // array for storing user ratings on movies (saves an object as {id: movie id, amount: no of stars given})
+
   const sortMovies = function (newMovies) {
     const sortedMovies = cloneDeep(newMovies);
     setMoviesData(sortedMovies); // update state
@@ -86,7 +89,7 @@ function App() {
     <Routes>
       <Route path="/build/" exact element={<BrowseMovies moviesData={moviesData} favorites={favorites} saveFavorites={saveFavorites} sortMovies={sortMovies}/>} />
       <Route path="/build/home" exact element={<Home />} />
-      <Route path="/build/detail" exact element={<Detail favorites={favorites} saveFavorites={saveFavorites}/>} />
+      <Route path="/build/detail" exact element={<Detail favorites={favorites} saveFavorites={saveFavorites} ratings={ratings}/>} />
       <Route path="/build/browse" exact element={<BrowseMovies moviesData={moviesData} favorites={favorites} saveFavorites={saveFavorites} sortMovies={sortMovies}/>} />
     </Routes>
 

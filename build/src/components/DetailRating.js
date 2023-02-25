@@ -12,6 +12,38 @@ const DetailRating = props => {
     const [userStars, setUserStars] = React.useState([]);
     const [userEmptyStars, setEmptyStars ]= React.useState([]);
 
+
+    // for applying a rating if this movie had been already rated by user
+    const handleRatingPrev = (rate) => {
+        let tempUserStars  = [];
+        let tempEmptyStars = [];
+
+        let amount = rate.amount;
+
+        for(let i = 0; i < amount; i++){
+            tempUserStars.push("userFull"+i);
+        }
+
+        for(let i = 0; i < 5-amount; i++){
+            tempEmptyStars.push("userEmpty"+i);
+        }
+
+        setUserStars(tempUserStars);
+        setEmptyStars(tempEmptyStars);
+
+        setRated(!rated);
+
+    }
+
+    // checks if this movie has been rated and will apply the rating
+    for(const m of props.ratings){
+        if (m.id == props.id && !rated) {
+            handleRatingPrev(m);
+        } 
+    }
+
+
+    // for handling ratings if the movie is not rated
     const handleRating = (e) => {
 
         let amount = parseInt(e.currentTarget.id);
@@ -31,6 +63,10 @@ const DetailRating = props => {
         setEmptyStars(tempEmptyStars);
 
         setRated(!rated);
+
+        console.log(props.id + " " + amount);
+
+        props.ratings.push({id: props.id, amount: amount});
     }
 
 
