@@ -4,7 +4,11 @@ import { Link } from 'react-router-dom';
 import { useLocation } from "react-router-dom"
 import HeaderApp from "./HeaderApp.js";
 import Footer from"./Footer";
+
+import DetailRating from "./DetailRating.js";
+
 import theatreImage from "../theatre.jpg";
+import missingPoster from "../missingposter.png";
 
 import fullstar from "../icons/star-solid.svg"
 import halfstar from "../icons/star-half-stroke-solid.svg"
@@ -15,7 +19,6 @@ Modal.setAppElement('#root') //gets rid of an error regarding Modal
 const Detail = props => {
 
 // Modal code modified from: https://www.npmjs.com/package/react-modal 
-
 
 // Uses location state to pass a movie in from the list
 const location = useLocation();
@@ -39,6 +42,15 @@ if (movie.details.genres == null){
 
 const checkFav = () =>{
   if (props.favorites.find(m => m.id === movie.id) != undefined){
+    return true;
+  }
+  else {
+    return false;
+  }
+}
+
+const checkRated = () =>{
+  if (props.ratings.find(r => r.id === movie.id) != undefined){
     return true;
   }
   else {
@@ -70,8 +82,6 @@ const ratingStars = () => {
 
   const index = Math.round(movie.ratings.average);
 
-  console.log(movie.ratings.average)
-
   let full = Math.round(index/2)-(index % 2);
   let half = index % 2;
   
@@ -84,21 +94,18 @@ const ratingStars = () => {
     halfstars.push("half"+i);
   }
 
-  //console.log(Math.round(5-(half+full)))
   for(let i = 0; i < (5-(half+full)); i++){
     emptystars.push("empty"+i);
   }  
 }
 
-const handleRating = (id) => {
-
-}
 
 ratingStars();
 
 //const poster = `https://image.tmdb.org/t/p/w154/${this.props.currentMovie.poster}`;
 
 // currency format code taken from: https://stackoverflow.com/questions/55556221/how-do-you-format-a-number-to-currency-when-using-react-native-expo 
+// missing poster fallback code taken form: https://stackoverflow.com/questions/29332660/react-update-state-if-image-not-found
   return (
     <>
     <main className="grid gap-1 grid-cols-5 grid-rows-5 bg-cover bg-center w-full h-full justify-items-center bg-local gap-5"
@@ -110,6 +117,7 @@ ratingStars();
             className="object-scale-down w-30 h-30 rounded-md m-6 "
             src={"https://image.tmdb.org/t/p/w342" + movie.poster}
             alt={movie.title}
+            onError={(e)=>{e.target.src=missingPoster}}
           />
         <div className="bg-slate-50 rounded-md w-full m-5 h-full p-6 m-6 grid grid-cols-2 grid-rows-2 gap-5 content-evenly overflow-y-auto">
           <div>
@@ -169,14 +177,9 @@ ratingStars();
 
                 </div>
                 <p className="font-mono"><strong>Your Rating:</strong></p>
-                <div className="flex justify-center">
-                  <img className="hover:opacity-50" style={{ height: 40, width: 40}} src={emptystar}  alt="half"></img>
-                  <img className="hover:opacity-50" style={{ height: 40, width: 40}} src={emptystar}  alt="half"></img>
-                  <img className="hover:opacity-50" style={{ height: 40, width: 40}} src={emptystar}  alt="half"></img>
-                  <img className="hover:opacity-50" style={{ height: 40, width: 40}} src={emptystar}  alt="half"></img>
-                  <img className="hover:opacity-50" style={{ height: 40, width: 40}} src={emptystar}  alt="half"></img>
-                </div>
-
+                
+                <DetailRating />
+                
               </div>
               <br/>
               
@@ -202,6 +205,7 @@ ratingStars();
             className="object-scale-down rounded-sm "
             src={"https://image.tmdb.org/t/p/w500" + movie.poster}
             alt={movie.title}
+            onError={(e)=>{e.target.src=missingPoster}}
           />
       </div>
 
@@ -213,3 +217,4 @@ ratingStars();
 };
 
 export default Detail;
+
