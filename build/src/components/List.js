@@ -100,7 +100,7 @@ const List = function (props) {
         <button className="rounded-lg bg-black pr-2" onClick={handleSort} value="ratings"> Rating </button>
         <button className="rounded-lg bg-black pr-2" onClick={handleSort} value="ratings.popularity"> Popularity </button>
       </div>
-      <ul className="inline-block">
+      <ul className="inline-block w-full">
         {printMovies(props)}
         
       </ul>

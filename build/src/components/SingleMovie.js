@@ -2,12 +2,13 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 const SingleMovie = function (props) {
+  
   const handleFavorite = () => {
     props.saveFavorites(props.movie);
   };
 
   return (
-    <li className="flex  w-full pt-1 pb-1 bg-black/90">
+    <li className="flex w-full pt-1 pb-1 bg-black/90">
       <div className="basis-1/4">
         <Link className="" to="/build/detail" state={props.movie}>
           <img

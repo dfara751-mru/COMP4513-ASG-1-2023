@@ -7,11 +7,13 @@ import theatreImage from "../theatre.jpg";
 
 const BrowseMovies = function (props) {
   const [movies, setMovies] = useState([]);
+  
   const [maxYear, setMaxYear] = React.useState();
   const [minYear, setMinYear] = React.useState();
   const [genre, setGenre] = React.useState([]);
   const [highRating, setHighRating] = React.useState([]);
   const [lowRating, setLowRating] = React.useState([]);
+
 
   useEffect(() => {
     let newMovies = [...props.moviesData];
@@ -72,6 +74,7 @@ const BrowseMovies = function (props) {
       <HeaderApp />
       <Filter
         movies={movies}
+        moviesData={props.moviesData}
         setMovies={setMovies}
         handleFilter={handleFilter}
         setLowRating={setLowRating}
@@ -86,7 +89,7 @@ const BrowseMovies = function (props) {
         saveFavorites={props.saveFavorites}
         sortMovies={props.sortMovies}
       />
-      <Favorites favorites={props.favorites} />
+      <Favorites favorites={props.favorites} setFavorites={props.setFavorites} />
     </main>
   );
 };

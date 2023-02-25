@@ -13,6 +13,8 @@ import { Route, Routes } from "react-router-dom";
 function App() {
   const [moviesData, setMoviesData] = React.useState([]);
   const [favorites, setFavorites] = React.useState([]);
+
+  
   const[filter, setFilter] = React.useState([]);
 
   const sortMovies = function (newMovies) {
@@ -26,11 +28,9 @@ function App() {
         (currentFavMovie) => currentFavMovie.id === movie.id
       ) < 0
     ) {
-      let newFavorites = [];
-      newFavorites = favorites;
+      let newFavorites = favorites;
       const favMovie = cloneDeep(movie);
-      newFavorites.push(favMovie);
-      setFavorites(newFavorites); // adds movie to favorites list.
+      setFavorites([...favorites, movie]); // adds movie to favorites list.
       console.log(favorites)
     } else {
       console.log("The movie is already in Favorites!");
@@ -84,10 +84,10 @@ function App() {
   // style={{backgroundImage: 'url(https://unsplash.com/photos/nLl5sJnElxY)'}}
   return (
     <Routes>
-      <Route path="/build/" exact element={<BrowseMovies moviesData={moviesData} favorites={favorites} saveFavorites={saveFavorites} sortMovies={sortMovies}/>} />
+      <Route path="/build/" exact element={<BrowseMovies moviesData={moviesData} favorites={favorites} saveFavorites={saveFavorites} setFavorites={setFavorites} sortMovies={sortMovies}/>} />
       <Route path="/build/home" exact element={<Home />} />
       <Route path="/build/detail" exact element={<Detail favorites={favorites} saveFavorites={saveFavorites}/>} />
-      <Route path="/build/browse" exact element={<BrowseMovies moviesData={moviesData} favorites={favorites} saveFavorites={saveFavorites} sortMovies={sortMovies}/>} />
+      <Route path="/build/browse" exact element={<BrowseMovies moviesData={moviesData} favorites={favorites} saveFavorites={saveFavorites} setFavorites={setFavorites} sortMovies={sortMovies}/>} />
     </Routes>
 
     // <main
