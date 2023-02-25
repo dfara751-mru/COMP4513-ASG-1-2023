@@ -7,6 +7,11 @@ import theatreImage from "../theatre.jpg";
 
 const BrowseMovies = function (props) {
   const [movies, setMovies] = useState([]);
+  const [maxYear, setMaxYear] = React.useState();
+  const [minYear, setMinYear] = React.useState();
+  const [genre, setGenre] = React.useState([]);
+  const [highRating, setHighRating] = React.useState([]);
+  const [lowRating, setLowRating] = React.useState([]);
 
   useEffect(() => {
     let newMovies = [...props.moviesData];
@@ -14,16 +19,43 @@ const BrowseMovies = function (props) {
     console.log(movies);
   }, [props.moviesData]);
 
-  const handleFilter = (input) => {
-    console.log(input.title)
-    let newMovies = props.moviesData.filter((movie) =>
-    movie.title.toLowerCase().includes(input.title.toLowerCase())
-    );
-    console.log(newMovies);
-    setMovies(newMovies)
-  };
+  const handleFilter = (input, flag) => {
+    console.log("maxYear");
+    console.log(maxYear);
+    console.log(flag);
 
-  
+    if (flag == "title") {
+      let newMovies = props.moviesData.filter((movie) =>
+        movie.title.toLowerCase().includes(input.title.toLowerCase())
+      );
+      setMovies(newMovies);
+    } else if (flag == "genre") {
+      console.log(genre);
+    } else if (flag == "year") {
+      console.log("year!")
+      console.log(maxYear)
+      console.log(minYear)
+
+
+      if (maxYear !== null && minYear === null) {
+        console.log(maxYear);
+        // let newMovies = props.moviesData.filter((movie) => {
+        //   if(movie.release_date < maxYear) {
+
+        //   }
+        // }
+        // )
+      }
+    } else if (minYear == true) {
+    }
+    // if(maxYear == true && minYear == true) {
+    //   if(input.inRange(input.release_date,minYear,maxYear)) {
+
+    //   }
+    // }
+    else if (flag == "rating") {
+    }
+  };
 
   // let newMovies = props.movies.filter( movie => movie.title.includes(flag));
   // props.setMovies(newMovies);
@@ -42,6 +74,12 @@ const BrowseMovies = function (props) {
         movies={movies}
         setMovies={setMovies}
         handleFilter={handleFilter}
+        setLowRating={setLowRating}
+        setHighRating={setHighRating}
+        setMaxYear={setMaxYear}
+        maxYear={maxYear}
+        setMinYear={setMinYear}
+        setGenre={setGenre}
       />
       <List
         movies={movies}

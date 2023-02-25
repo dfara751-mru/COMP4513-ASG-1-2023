@@ -92,13 +92,13 @@ const List = function (props) {
   
 
   return (
-    <div className="col-span-3 row-span-4 w-full min-w-[150px] h-auto rounded-lg bg-yellow-600 overflow-y-auto">
-      List/Matches
-      <div>
-        <button onClick={handleSort} value="title" className="rounded-lg "> Title </button>
-        <button onClick={handleSort} value="release_date"> Year </button>
-        <button onClick={handleSort} value="ratings"> Rating </button>
-        <button onClick={handleSort} value="ratings.popularity"> Popularity </button>
+    <div className="col-span-3 row-span-4 w-full min-w-[150px] h-auto rounded-lg bg-black/50 text-white overflow-y-auto">
+      <div className="text-center bg-black">List/Matches</div>
+      <div className="bg-black/25 justify-center">
+        <button className="rounded-lg bg-black pr-2" onClick={handleSort} value="title"> Title </button>
+        <button className="rounded-lg bg-black pr-2" onClick={handleSort} value="release_date"> Year </button>
+        <button className="rounded-lg bg-black pr-2" onClick={handleSort} value="ratings"> Rating </button>
+        <button className="rounded-lg bg-black pr-2" onClick={handleSort} value="ratings.popularity"> Popularity </button>
       </div>
       <ul className="inline-block">
         {printMovies(props)}

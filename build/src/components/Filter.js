@@ -2,12 +2,6 @@ import React, { useEffect, useState } from "react";
 
 const Filter = function (props) {
   const [filter, setFilter] = React.useState();
-  const [title, setTitle] = React.useState();
-  const [maxYear, setMaxYear] = React.useState();
-  const [minYear, setMinYear] = React.useState();
-  const [genre, setGenre] = React.useState();
-  const [highRating, setHighRating] = React.useState();
-  const [lowRating, setLowRating] = React.useState();
 
   const handleSubmit = (event) => {
     console.log("handle submit!!");
@@ -26,23 +20,34 @@ const Filter = function (props) {
   // }
 
   const handleTitle = (e) => {
-    // setTitle(e.target.value);
-    props.handleFilter({title: e.target.value});
+    props.handleFilter({title: e.target.value},"title");
   }
   const handleGenre = (e) => {
-    setGenre(e.target.value)
+    props.setGenre(e.target.value);
   }
   const handleMaxYear = (e) => {
-    setMaxYear(e.target.value);
+    ///console.log(e.target.value)
+    const selectDate = new Date(e.target.value);
+    
+    let newMovies = props.movies.filter((movie) => {
+      const movieDate = new Date(movie.release_date) 
+      if (movieDate <= selectDate && movieDate) {
+          return movie
+      }
+    });
+    console.log("this is test: " + newMovies)
+    props.setMaxYear(e.target.value);
+    // console.log(props.maxYear);
+    // props.handleFilter(e.target.value, "year");
   }
   const handleMinYear = (e) => {
-    setMinYear(e.target.value);
+    //setMinYear(e.target.value);
   }
   const handleHighRating = (e) => {
-    setHighRating(e.target.value);
+    props.setHighRating(e.target.value);
   }
   const handleLowRating = (e) => {
-    setLowRating(e.target.value);
+    props.setLowRating(e.target.value);
   }
 
 
@@ -96,21 +101,21 @@ const Filter = function (props) {
         </div>
         <div>
           <input type="radio" name="Filter" value="Year" />
-          <label htmlFor="Year"> Rating </label>
+          <label htmlFor="Year"> Date </label>
           <div className="flex ">
+            greater
             <input
-              onChange={handleLowRating}
-              type="number"
-              name="Less"
-              placeholder="Less"
-              className="w-16"
+              onChange={handleMaxYear}
+              type="date"
+              name="greater"
+              className="w-20"
             />
+            less
             <input
-              onChange={handleHighRating}
-              type="number"
-              name="Greater"
-              placeholder="Greater"
-              className="w-16 p-1"
+              onChange={handleMinYear}
+              type="date"
+              name="less"
+              className="w-20"
             />
           </div>
         </div>
@@ -138,7 +143,7 @@ const Filter = function (props) {
           <button type="submit" className="bg-indigo-500">
             Submit
           </button>
-          <button>Clear</button>
+          <button tupe="submit">Clear</button>
         </div>
       </div>
     </div>
