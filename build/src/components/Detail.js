@@ -49,14 +49,6 @@ const checkFav = () =>{
   }
 }
 
-const checkRated = () =>{
-  if (props.ratings.find(r => r.id === movie.id) != undefined){
-    return true;
-  }
-  else {
-    return false;
-  }
-}
 
 const [open, setOpen] = React.useState(false);
 
@@ -162,6 +154,7 @@ ratingStars();
               <div className="border-4 rounded-md w-full">
                 <p className="font-mono text-3xl"><strong>★RATINGS★</strong></p>
                 <br/>
+                <p className="font-mono"><strong>Total Ratings:</strong> {movie.ratings.count}</p>
                 <p className="font-mono"><strong>Average Rating:</strong></p>
                 <div className="flex justify-center">
                 {fullstars.map((star) => 
@@ -178,7 +171,7 @@ ratingStars();
                 </div>
                 <p className="font-mono"><strong>Your Rating:</strong></p>
                 
-                <DetailRating />
+                <DetailRating id={movie.id} ratings={props.ratings}/>
                 
               </div>
               <br/>
