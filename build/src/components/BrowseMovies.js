@@ -4,6 +4,7 @@ import List from "./List";
 import Favorites from "./Favorites";
 import HeaderApp from "./HeaderApp";
 import theatreImage from "../theatre.jpg";
+import { useLocation } from "react-router-dom"
 
 const BrowseMovies = function (props) {
   const [movies, setMovies] = useState([]);
@@ -15,10 +16,25 @@ const BrowseMovies = function (props) {
   const [lowRating, setLowRating] = React.useState([]);
 
 
+  const location = useLocation();
+  // uses location stat to pass in input from homepage, if any
+  const homeInput = location.state;
+
+  //console.log(homeInput);
+
+
   useEffect(() => {
     let newMovies = [...props.moviesData];
+    if(homeInput!=null){
+      // handles search from home page
+      let tempMovies = newMovies.filter((movie) =>
+        movie.title.toLowerCase().includes(homeInput.toLowerCase())
+      );
+      setMovies(tempMovies);
+    } else {
     setMovies(newMovies);
     console.log(movies);
+    }
   }, [props.moviesData]);
 
   const handleFilter = (input, flag) => {
@@ -65,6 +81,10 @@ const BrowseMovies = function (props) {
   // }
   // inside filter
   // if genre exists and is not null OR
+
+
+
+
 
   return (
     <main
