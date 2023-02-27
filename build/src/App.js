@@ -40,6 +40,23 @@ function App() {
     }
   };
 
+  const removeFavorite = function (movie) {
+    if (
+      favorites.findIndex(
+        (currentFavMovie) => currentFavMovie.id === movie.id
+      ) >= 0
+    ) {
+      let index = favorites.findIndex((currentFavMovie) => currentFavMovie.id === movie.id);
+      let tempFavs = cloneDeep(favorites);
+      tempFavs.splice(index, 1);
+      setFavorites(tempFavs); // adds movie to favorites list.
+      console.log(favorites)
+    } else {
+      console.log("The movie was not in favorites");
+    }
+  }
+
+
   useEffect(() => {
     const getData = async () => {
       try {
@@ -89,13 +106,8 @@ function App() {
     <Routes>
       <Route path="/build/" exact element={<BrowseMovies moviesData={moviesData} favorites={favorites} saveFavorites={saveFavorites} setFavorites={setFavorites} />} />
       <Route path="/build/home" exact element={<Home />} />
-<<<<<<< HEAD
-      <Route path="/build/detail" exact element={<Detail favorites={favorites} saveFavorites={saveFavorites}/>} />
-      <Route path="/build/browse" exact element={<BrowseMovies moviesData={moviesData} favorites={favorites} saveFavorites={saveFavorites} setFavorites={setFavorites} sortMovies={sortMovies}/>} />
-=======
-      <Route path="/build/detail" exact element={<Detail favorites={favorites} saveFavorites={saveFavorites} ratings={ratings}/>} />
-      <Route path="/build/browse" exact element={<BrowseMovies moviesData={moviesData} favorites={favorites} saveFavorites={saveFavorites} sortMovies={sortMovies}/>} />
->>>>>>> 2d9f1be9c3877e855aa5e2ef223847608ff0ceeb
+      <Route path="/build/detail" exact element={<Detail favorites={favorites} saveFavorites={saveFavorites} ratings={ratings} removeFavorite={removeFavorite}/>} />
+      <Route path="/build/browse" exact element={<BrowseMovies moviesData={moviesData} favorites={favorites} saveFavorites={saveFavorites} setFavorites={setFavorites} sortMovies={sortMovies} removeFavorite={removeFavorite}/>} />
     </Routes>
 
     // <main
