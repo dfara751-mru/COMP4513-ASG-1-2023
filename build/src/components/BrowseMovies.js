@@ -4,6 +4,8 @@ import List from "./List";
 import Favorites from "./Favorites";
 import HeaderApp from "./HeaderApp";
 import theatreImage from "../theatre.jpg";
+import { useLocation } from "react-router-dom"
+
 
 const BrowseMovies = function (props) {
   const [movies, setMovies] = useState([]);
@@ -29,6 +31,7 @@ const BrowseMovies = function (props) {
     } else {
     setMovies(newMovies);
     console.log(movies);
+    }
   }, [props.moviesData]);
   
 
