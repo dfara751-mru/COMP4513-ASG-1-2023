@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import missingPoster from "../missingposter small.png"
+import missingPoster from "../missingpostersmall.png"
 
 const SingleFavoriteMovie = function (props) {
 

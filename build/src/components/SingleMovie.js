@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import missingPoster from "../missingposter small.png"
+import missingpostersmall from "../missingpostersmall.png"
 
 const SingleMovie = function (props) {
 
@@ -16,6 +16,7 @@ const SingleMovie = function (props) {
             className="basis-1/4 flex-shrink-0 rounded-lg"
             src={"https://image.tmdb.org/t/p/w92" + props.poster}
             alt={props.title}
+            onError={(e)=>{e.target.src=missingpostersmall}}
           />
         </Link>
       </div>
