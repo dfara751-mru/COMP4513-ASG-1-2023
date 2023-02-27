@@ -20,10 +20,10 @@ function App() {
 
   let ratings = []; // array for storing user ratings on movies (saves an object as {id: movie id, amount: no of stars given})
 
-  const sortMovies = function (newMovies) {
-    const sortedMovies = cloneDeep(newMovies);
-    setMoviesData(sortedMovies); // update state
-  };
+  // const sortMovies = function (newMovies) {
+  //   const sortedMovies = cloneDeep(newMovies);
+  //   setMoviesData(sortedMovies); // update state
+  // };
 
   const saveFavorites = function (movie) {
     if (
@@ -59,7 +59,7 @@ function App() {
             const rawData = localStorage.getItem("movies");
             if (rawData) {
               const data = JSON.parse(rawData);
-              console.log(data)
+              // console.log(data)
               initiateTitleSort(data);
             }
           }
@@ -87,15 +87,10 @@ function App() {
   // style={{backgroundImage: 'url(https://unsplash.com/photos/nLl5sJnElxY)'}}
   return (
     <Routes>
-      <Route path="/build/" exact element={<BrowseMovies moviesData={moviesData} favorites={favorites} saveFavorites={saveFavorites} setFavorites={setFavorites} sortMovies={sortMovies}/>} />
+      <Route path="/build/" exact element={<BrowseMovies moviesData={moviesData} favorites={favorites} saveFavorites={saveFavorites} setFavorites={setFavorites} />} />
       <Route path="/build/home" exact element={<Home />} />
-<<<<<<< HEAD
-      <Route path="/build/detail" exact element={<Detail favorites={favorites} saveFavorites={saveFavorites}/>} />
-      <Route path="/build/browse" exact element={<BrowseMovies moviesData={moviesData} favorites={favorites} saveFavorites={saveFavorites} setFavorites={setFavorites} sortMovies={sortMovies}/>} />
-=======
       <Route path="/build/detail" exact element={<Detail favorites={favorites} saveFavorites={saveFavorites} ratings={ratings}/>} />
-      <Route path="/build/browse" exact element={<BrowseMovies moviesData={moviesData} favorites={favorites} saveFavorites={saveFavorites} sortMovies={sortMovies}/>} />
->>>>>>> 2d9f1be9c3877e855aa5e2ef223847608ff0ceeb
+      <Route path="/build/browse" exact element={<BrowseMovies moviesData={moviesData} favorites={favorites} saveFavorites={saveFavorites} />} />
     </Routes>
 
     // <main

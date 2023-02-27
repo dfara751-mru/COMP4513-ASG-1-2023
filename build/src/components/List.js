@@ -21,7 +21,7 @@ const List = function (props) {
       else if (a.title > b.title) return 1;
       else return 0;
     });
-    props.sortMovies(newMovies);
+    sortMovies(newMovies);
   };
 
   const sortMoviesByReleaseDate = (props) => {
@@ -30,7 +30,7 @@ const List = function (props) {
       else if (a.release_date > b.release_date) return 1;
       else return 0;
     });
-    props.sortMovies(newMovies);
+    sortMovies(newMovies);
   };
 
   const sortMoviesByRatings = (props) => {
@@ -39,7 +39,7 @@ const List = function (props) {
       else if (a.ratings.average > b.ratings.average) return -1;
       else return 0;
     });
-    props.sortMovies(newMovies);
+    sortMovies(newMovies);
   };
 
   const sortMoviesbyPopularity = (props) => {
@@ -48,7 +48,12 @@ const List = function (props) {
       else if (a.ratings.popularity > b.ratings.popularity) return -1;
       else return 0;
     });
-    props.sortMovies(newMovies);
+    sortMovies(newMovies);
+  };
+
+  const sortMovies = function (newMovies) {
+    const sortedMovies = cloneDeep(newMovies);
+    props.setMovies(sortedMovies); // update state
   };
 
   //   const sortMovies = (inputValue) => {
