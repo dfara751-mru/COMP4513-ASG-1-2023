@@ -8,6 +8,7 @@ const Favorites = function (props) {
     props.setFavorites([]);
   }
 
+
   return (
     <div className="block w-full min-w-[150px] min-h-[50px] col-span-1 row-span-3 rounded-lg bg-black/90 overflow-y-auto">
       <div className="flex flex-row justify-items-center">
@@ -17,11 +18,13 @@ const Favorites = function (props) {
       <ul className="block">
         {props.favorites.map((movie) => (
           <SingleFavoriteMovie
+            movie={movie}
             id={movie.id}
             key={movie.id}
             title={movie.title}
             poster={movie.poster}
             tmdbID={movie.tmdbID}
+            removeFavorite={props.removeFavorite}
           />
         ))}
       </ul>

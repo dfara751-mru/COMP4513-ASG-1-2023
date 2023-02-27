@@ -109,7 +109,7 @@ const BrowseMovies = function (props) {
         saveFavorites={props.saveFavorites}
         sortMovies={props.sortMovies}
       />
-      <Favorites favorites={props.favorites} setFavorites={props.setFavorites} />
+      <Favorites favorites={props.favorites} setFavorites={props.setFavorites} removeFavorite={props.removeFavorite}/>
     </main>
   );
 };

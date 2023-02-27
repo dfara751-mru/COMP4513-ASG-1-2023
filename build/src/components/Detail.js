@@ -26,8 +26,11 @@ const location = useLocation();
 const movie = location.state;
 
 const handleFavorite = () => {
-  props.saveFavorites(movie);
-
+  if(faved){
+    props.removeFavorite(movie);
+  } else {
+    props.saveFavorites(movie);
+  }
   setFav(!faved);
 };
 
@@ -155,6 +158,7 @@ ratingStars();
                 <p className="font-mono text-3xl"><strong>★RATINGS★</strong></p>
                 <br/>
                 <p className="font-mono"><strong>Total Ratings:</strong> {movie.ratings.count}</p>
+                <p className="font-mono"><strong>Popularity:</strong> {movie.ratings.popularity}</p>
                 <p className="font-mono"><strong>Average Rating:</strong></p>
                 <div className="flex justify-center">
                 {fullstars.map((star) => 
