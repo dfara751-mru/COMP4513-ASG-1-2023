@@ -5,7 +5,13 @@ import HeaderApp from "./HeaderApp";
 import Footer from "./Footer";
 
 const Home = (props) => {
-  <HeaderApp />
+  
+  const [input, setInput] = React.useState("");
+
+  const handleInput = (e) => {
+    setInput(e.target.value);
+  }
+
   return (
     <main
       className="grid grid-cols-3 grid-rows-3 bg-cover bg-center w-full h-full m-auto bg-local place-content-center"
@@ -15,8 +21,8 @@ const Home = (props) => {
       <div></div>
       <div className="row-span-3 w-full max-h-[300px] items-center justify-center mx-auto bg-red-900 rounded-md flex flex-col space-y-5">
         <label className="text-slate-50 font-mono font-bold italic text-xl" for="mtitle">TITLE:</label>
-        <input className="rounded-md w-[300px]"></input>
-        <div className="flex space-x-5"><button className="bg-slate-50 rounded-lg w-20 h-10 border-2 border-solid border-black font-mono" >Search</button><button className="bg-slate-50 rounded-lg w-40 h-10 border-2 border-solid border-black font-mono">Show All Movies</button></div>
+        <input className="rounded-md w-[300px]" onChange={handleInput}></input>
+        <div className="flex space-x-5"><Link to="/build/browse" state={input}><button className="bg-slate-50 rounded-lg w-20 h-10 border-2 border-solid border-black font-mono" >Search</button></Link><Link to="/build/browse"><button className="bg-slate-50 rounded-lg w-40 h-10 border-2 border-solid border-black font-mono">Show All Movies</button></Link></div>
       </div>
       <div></div>
       <Footer />
@@ -25,3 +31,5 @@ const Home = (props) => {
 };
 
 export default Home;
+
+// state={props.movie}

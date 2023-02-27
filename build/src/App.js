@@ -89,8 +89,13 @@ function App() {
     <Routes>
       <Route path="/build/" exact element={<BrowseMovies moviesData={moviesData} favorites={favorites} saveFavorites={saveFavorites} setFavorites={setFavorites} />} />
       <Route path="/build/home" exact element={<Home />} />
+<<<<<<< HEAD
+      <Route path="/build/detail" exact element={<Detail favorites={favorites} saveFavorites={saveFavorites}/>} />
+      <Route path="/build/browse" exact element={<BrowseMovies moviesData={moviesData} favorites={favorites} saveFavorites={saveFavorites} setFavorites={setFavorites} sortMovies={sortMovies}/>} />
+=======
       <Route path="/build/detail" exact element={<Detail favorites={favorites} saveFavorites={saveFavorites} ratings={ratings}/>} />
-      <Route path="/build/browse" exact element={<BrowseMovies moviesData={moviesData} favorites={favorites} saveFavorites={saveFavorites} />} />
+      <Route path="/build/browse" exact element={<BrowseMovies moviesData={moviesData} favorites={favorites} saveFavorites={saveFavorites} sortMovies={sortMovies}/>} />
+>>>>>>> 2d9f1be9c3877e855aa5e2ef223847608ff0ceeb
     </Routes>
 
     // <main
