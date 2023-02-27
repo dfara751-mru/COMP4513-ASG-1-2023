@@ -60,8 +60,6 @@ const [ratingsRange, setRatingsRange] = React.useState({
       }
     }
     return list
-    // printSelection(list);
-    //props.handleGenre({ genre: e.target.value }, "genre");
   };
 
 
@@ -86,16 +84,23 @@ const [ratingsRange, setRatingsRange] = React.useState({
     }
   } 
 
-  // high_rating : 10,
+  // high_rating
   // low_rating
   const handleRating = (e) => {
     if (e.target.name === "high") {
-      setRatingsRange({high_rating: e.target.value,low_rating: ratingsRange.low_rating})
-      props.setMovies(props.moviesData.filter((movie) => movie.ratings.average <= ratingsRange.high_rating && movie.ratings.average >= ratingsRange.low_rating))
+      const tempRatings = {high_rating: e.target.value,low_rating: ratingsRange.low_rating};
+      console.log(tempRatings);
+      setRatingsRange(tempRatings);
+      props.setMovies(props.moviesData.filter((movie) => movie.ratings.average <= tempRatings.high_rating && movie.ratings.average >= tempRatings.low_rating))
+
+
+
       // get movie ratings movie.ratings.average <= ratingsRange.high_rating && movies.ratings.average >= ratingsRange.low_rating
     } else {
       setRatingsRange({high_rating: ratingsRange.high_rating,low_rating: e.target.value})
       props.setMovies(props.moviesData.filter((movie) => movie.ratings.average <= ratingsRange.high_rating && movie.ratings.average >= ratingsRange.low_rating))
+      console.log(ratingsRange.high_rating);
+      console.log(ratingsRange.low_rating);
     }
 
   };

@@ -67,8 +67,13 @@ const List = function (props) {
   //     console.log(newMovie);
   //     return newMovie;
   //   };
+  
+
 
   const printMovies = (props) => {
+    if (props.movies.length <= 0) {
+      return <div className="text-white">No Matches</div>;
+    } else {
     return props.movies.map((movie) => (
       <SingleMovie
         saveFavorites={props.saveFavorites}
@@ -83,7 +88,7 @@ const List = function (props) {
         runtime={movie.runtime}
         tmdbID={movie.tmdbID}
       />
-    ));
+    ));}
     
   };
 

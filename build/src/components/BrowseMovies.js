@@ -30,7 +30,6 @@ const BrowseMovies = function (props) {
       setMovies(tempMovies);
     } else {
     setMovies(newMovies);
-    console.log(movies);
     }
   }, [props.moviesData]);
   

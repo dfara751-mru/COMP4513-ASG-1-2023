@@ -7,10 +7,8 @@ const Favorites = function (props) {
     props.setFavorites([]);
   };
 
-  const emptyCheck = () => {
-    console.log(props.favorites.length);
+  const printFavorites = () => {
     if (props.favorites.length <= 0) {
-      console.log("no movies");
       return <div className="text-white">No movies</div>;
     } else {
       return props.favorites.map((movie) => (
@@ -41,7 +39,7 @@ const Favorites = function (props) {
         </div>
       </div>
       <ul className="block">
-        {emptyCheck()}
+        {printFavorites()}
         {/* {props.favorites.map((movie) => (
           <SingleFavoriteMovie
             movie={movie}
