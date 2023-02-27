@@ -2,6 +2,7 @@ import React from "react";
 import SingleMovie from "./SingleMovie.js";
 import * as cloneDeep from "lodash/cloneDeep";
 
+
 const List = function (props) {
   const handleSort = (e) => {
     if (e.target.value === "title") {
