@@ -66,7 +66,7 @@ function App() {
             // fetch data and store in local storage.
             console.log("fetch from URL");
             const url =
-              "https://www.randyconnolly.com/funwebdev/3rd/api/movie/movies-brief.php?limit=20";
+              "https://www.randyconnolly.com/funwebdev/3rd/api/movie/movies-brief.php?limit=200";
             const response = await fetch(url);
             const data = await response.json();
             initiateTitleSort(data);

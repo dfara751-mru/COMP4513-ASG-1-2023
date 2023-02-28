@@ -6,22 +6,16 @@ const Filter = function (props) {
   const [RatingInput, setRatingInput] = React.useState(true);
   const [dateInput, setDateInput] = React.useState(true);
 
+  let high_rating = 10;
+  let low_rating = 0;
 
   const [dateRange, setDateRange] = React.useState({
     start_date : new Date().toISOString().split('T')[0],
     end_date : null//new Date('2000-01-01').toISOString().split('T')[0]
 });
 
-const [ratingsRange, setRatingsRange] = React.useState({
-  high_rating : 10,
-  low_rating : 0//new Date('2000-01-01').toISOString().split('T')[0]
-});
-
 
   const [genre, setGenre] = React.useState([]);
-  const [highRating, setHighRating] = React.useState();
-  const [lowRating, setLowRating] = React.useState();
-
   const [genreType, setGenreType] = React.useState([]);
   const [selectOption, setSelectOption] = React.useState('');
 
@@ -88,19 +82,13 @@ const [ratingsRange, setRatingsRange] = React.useState({
   // low_rating
   const handleRating = (e) => {
     if (e.target.name === "high") {
-      const tempRatings = {high_rating: e.target.value,low_rating: ratingsRange.low_rating};
-      console.log(tempRatings);
-      setRatingsRange(tempRatings);
-      props.setMovies(props.moviesData.filter((movie) => movie.ratings.average <= tempRatings.high_rating && movie.ratings.average >= tempRatings.low_rating))
-
-
-
+      high_rating = e.target.value;
+      props.setMovies(props.moviesData.filter((movie) => movie.ratings.average <= high_rating && movie.ratings.average >= low_rating))
       // get movie ratings movie.ratings.average <= ratingsRange.high_rating && movies.ratings.average >= ratingsRange.low_rating
     } else {
-      setRatingsRange({high_rating: ratingsRange.high_rating,low_rating: e.target.value})
-      props.setMovies(props.moviesData.filter((movie) => movie.ratings.average <= ratingsRange.high_rating && movie.ratings.average >= ratingsRange.low_rating))
-      console.log(ratingsRange.high_rating);
-      console.log(ratingsRange.low_rating);
+      low_rating = e.target.value;
+      //setRatingsRange({high_rating: ratingsRange.high_rating,low_rating: e.target.value})
+      props.setMovies(props.moviesData.filter((movie) => movie.ratings.average <= high_rating && movie.ratings.average >= low_rating))
     }
 
   };
