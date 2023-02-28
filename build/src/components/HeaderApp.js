@@ -18,13 +18,13 @@ const closeModal = () => {
 
  return ( 
    <>
-    <div className="col-span-5 cols-start-1 flex flex-row justify-around w-full h-24 rounded-b-md bg-red-900 items-center content-center">
+    <div className="col-span-5 cols-start-1 flex flex-row justify-around w-full h-24 rounded-b-md bg-black/75 items-center content-center">
       <Link to="/build/home"><div className='text-4xl'>🎥</div></Link>
       <Link to="/build/home"><h3 className="text-white text-4xl font-mono font-bold italic">REACT MOVIE SEARCH</h3></Link>
       <button onClick={openModal} className="bg-slate-50 rounded-lg w-20 h-10 border-2 border-solid border-black font-mono">ABOUT</button>
     </div>
     <Modal
-      className="fixed right-0 h-full bg-red-900 shadow-lg w-full max-w-screen-sm p-4 rounded-l-md mr-50"
+      className="fixed right-0 h-full bg-black/75 shadow-lg w-full max-w-screen-sm p-4 rounded-l-md mr-50"
       isOpen={open}
       onRequestClose={closeModal}
       contentLabel="About"
@@ -38,7 +38,7 @@ const closeModal = () => {
          <div className='bg-slate-50 m-10 h-60 rounded-md'>
             <p>We'll put stuff here eventually.</p>
          </div>
-         <button className="bg-slate-50 rounded-lg w-20 h-10 border-2 border-solid border-black font-mono" onClick={closeModal}>CLOSE</button>
+         <button className="bg-slate-300 rounded-lg w-20 h-10 border-2 border-solid border-black font-mono" onClick={closeModal}>CLOSE</button>
       </div>
 
 

@@ -106,7 +106,7 @@ ratingStars();
     <main className="grid gap-1 grid-cols-5 grid-rows-5 bg-cover bg-center w-full h-full justify-items-center bg-local gap-5"
     style={{ backgroundImage: `url(${theatreImage})` }}>
     <HeaderApp />
-    <div className="col-span-5 row-span-5 min-w-[1000px] flex flex-row min- bg-red-900 shadow-lg justify-center items-center m-6 rounded-md">
+    <div className="col-span-5 row-span-5 min-w-[1000px] flex flex-row min- bg-black/75 shadow-lg justify-center items-center m-6 rounded-md">
     <img
             onClick={openModal}
             className="object-scale-down w-30 h-30 rounded-md m-6 "
@@ -158,7 +158,7 @@ ratingStars();
                 <p className="font-mono text-3xl"><strong>★RATINGS★</strong></p>
                 <br/>
                 <p className="font-mono"><strong>Total Ratings:</strong> {movie.ratings.count}</p>
-                <p className="font-mono"><strong>Popularity:</strong> {movie.ratings.popularity}</p>
+                <p className="font-mono"><strong>Popularity:</strong> {movie.ratings.popularity.toFixed(1)}</p>
                 <p className="font-mono"><strong>Average Rating:</strong></p>
                 <div className="flex justify-center">
                 {fullstars.map((star) => 
