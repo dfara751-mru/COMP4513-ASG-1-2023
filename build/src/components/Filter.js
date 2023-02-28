@@ -15,7 +15,7 @@ const Filter = function (props) {
   // const [genre, setGenre] = React.useState([]);
   // const [genreType, setGenreType] = React.useState([]);
   const [selectOption, setSelectOption] = React.useState('');
-
+  const [hidden, setHidden] = React.useState(false);
 
   const handleSubmit = (event) => {
     console.log("handle submit!!");
