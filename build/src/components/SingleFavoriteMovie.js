@@ -7,12 +7,6 @@ const SingleFavoriteMovie = function (props) {
   const removeFavorite = (e) => {
     props.removeFavorite(props.movie);
   }
-//     props.saveFavorites(props.movie);
-//   };
-
-  // const handleView = (e) => {
-  //   console.log("handle View!");
-  // };
 
   return (
     <li className=" justify-center w-full ">

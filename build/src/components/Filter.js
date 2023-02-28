@@ -1,39 +1,20 @@
 import React, { useEffect, useState } from "react";
 
 const Filter = function (props) {
+  let high_rating = 10;
+  let low_rating = 0;
+
   const [titleInput, setTitleInput] = React.useState(true);
   const [genreInput, setGenreInput] = React.useState(true);
   const [RatingInput, setRatingInput] = React.useState(true);
   const [dateInput, setDateInput] = React.useState(true);
-
-  let high_rating = 10;
-  let low_rating = 0;
-
   const [dateRange, setDateRange] = React.useState({
     start_date : new Date().toISOString().split('T')[0],
     end_date : null//new Date('2000-01-01').toISOString().split('T')[0]
 });
-
-
-  const [genre, setGenre] = React.useState([]);
-  const [genreType, setGenreType] = React.useState([]);
+  // const [genre, setGenre] = React.useState([]);
+  // const [genreType, setGenreType] = React.useState([]);
   const [selectOption, setSelectOption] = React.useState('');
-
-
-  const handleSubmit = (event) => {
-    console.log("handle submit!!");
-  };
-
-  // const handleFilter = (e,flag) => {
-  //   if(flag == "Title") {
-  //   let newMovies = props.movies.filter( movie => movie.title.includes(flag));
-  //   props.setMovies(newMovies);
-  //   // pass {Title: e.target.value} to handle filter
-  //   }
-  //   // inside filter
-  //   // if genre exists and is not null OR
-
-  // }
 
   const handleTitle = (e) => {
     let newMovies = props.moviesData.filter((movie) =>
@@ -56,7 +37,6 @@ const Filter = function (props) {
     return list
   };
 
-
   // Nolan Walker and a lot of stack overflow helped me with handle Genre
   const handleGenre = (e) => {
     setSelectOption(e.target.value)
@@ -78,31 +58,22 @@ const Filter = function (props) {
     }
   } 
 
-  // high_rating
-  // low_rating
   const handleRating = (e) => {
     if (e.target.name === "high") {
       high_rating = e.target.value;
       props.setMovies(props.moviesData.filter((movie) => movie.ratings.average <= high_rating && movie.ratings.average >= low_rating))
-      // get movie ratings movie.ratings.average <= ratingsRange.high_rating && movies.ratings.average >= ratingsRange.low_rating
     } else {
       low_rating = e.target.value;
-      //setRatingsRange({high_rating: ratingsRange.high_rating,low_rating: e.target.value})
       props.setMovies(props.moviesData.filter((movie) => movie.ratings.average <= high_rating && movie.ratings.average >= low_rating))
     }
 
   };
 
-  const handleHighRating = (e) => {
-    //console.log(e.target.value);
-    props.setHighRating(e.target.value);
-    //console.log(props.highRating);
-  };
-  const handleLowRating = (e) => {
-    //console.log(e.target.value);
-    props.setLowRating(e.target.value);
-    //console.log(props.highRating);
-  };
+
+  //-------------------------------------------------------------------------------------------------------------------------------
+  // Note these functions are used to handle the state of the unput tags in the return
+  // by clicking a radial button, it will change the state of the other inputs that are
+  // not connected with that radial button.
 
   const handleTitleClick = (e) => {
     setTitleInput(false);
@@ -140,7 +111,7 @@ const Filter = function (props) {
     props.setMovies(props.moviesData);
   };
 
-  
+  //-------------------------------------------------------------------------------------------------------------------
 
   const printSelection = () => {
     const genreList = populateGenre()
@@ -148,20 +119,6 @@ const Filter = function (props) {
       return <option key={id} value={genre}> {genre} </option>
     });
   };
-
-  // const printOption = (genre) => {
-  //   return <option value={genre}> {genre} </option>
-  // };
-
-  //             const data = JSON.parse(rawData);
-  //             initiateTitleSort(data);
-  //           }
-  //         }
-  //       }
-  //     } catch (err) {
-  //       console.error(err);
-  //     }
-  //   };
 
   useEffect(() => {
   }, [dateRange]);

@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import SingleFavoriteMovie from "./SingleFavoriteMovie.js";
-import missingpostersmall from "../missingpostersmall.png";
+
 
 const Favorites = function (props) {
   const clearFavorites = (e) => {
@@ -40,17 +40,6 @@ const Favorites = function (props) {
       </div>
       <ul className="block">
         {printFavorites()}
-        {/* {props.favorites.map((movie) => (
-          <SingleFavoriteMovie
-            movie={movie}
-            id={movie.id}
-            key={movie.id}
-            title={movie.title}
-            poster={movie.poster}
-            tmdbID={movie.tmdbID}
-            removeFavorite={props.removeFavorite}
-          />
-        ))} */}
       </ul>
     </div>
   );

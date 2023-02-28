@@ -13,17 +13,8 @@ import { Route, Routes } from "react-router-dom";
 function App() {
   const [moviesData, setMoviesData] = React.useState([]);
   const [favorites, setFavorites] = React.useState([]);
-
   
-  const[filter, setFilter] = React.useState([]);
-
-
   let ratings = []; // array for storing user ratings on movies (saves an object as {id: movie id, amount: no of stars given})
-
-  // const sortMovies = function (newMovies) {
-  //   const sortedMovies = cloneDeep(newMovies);
-  //   setMoviesData(sortedMovies); // update state
-  // };
 
   const saveFavorites = function (movie) {
     if (
@@ -34,7 +25,6 @@ function App() {
       let newFavorites = favorites;
       const favMovie = cloneDeep(movie);
       setFavorites([...favorites, movie]); // adds movie to favorites list.
-      console.log(favorites)
     } else {
       console.log("The movie is already in Favorites!");
     }
@@ -110,34 +100,6 @@ function App() {
       <Route path="/build/browse" exact element={<BrowseMovies moviesData={moviesData} favorites={favorites} saveFavorites={saveFavorites} setFavorites={setFavorites} removeFavorite={removeFavorite}/>} />
     </Routes>
 
-    // <main
-    //   className="grid gap-1 grid-cols-5 grid-rows-5 bg-cover bg-center w-full h-full justify-items-center bg-local gap-5"
-    //   style={{ backgroundImage: `url(${theatreImage})` }}
-    // >
-    //   <HeaderApp />
-    //   <Filter />
-    //   <List
-    //     movies={movies}
-    //     saveFavorites={saveFavorites}
-    //     sortMovies={sortMovies}
-    //   />
-    //   <Favorites favorites={favorites} />
-    //   {" "}
-    //   {/* <div className="w-full h-24 min-h-[3] rounded-lg bg-red-600 col-span-3">Header</div> */}
-    //   {" "}
-    //   {/* <div className="row-span-2 w-full h-full min-w-[150px] min-h-[50px] rounded-lg bg-blue-600">
-    // //     Movie Filter
-    // //   </div> */}
-    //   {" "}
-    //   {/* <div className="col-span-3 row-span-4 w-full min-w-[150px] min-h-[50px] rounded-lg bg-yellow-600">
-    // //     List/Matches
-    // //   </div> */}
-    //   {" "}
-    //   {/* <div className="w-full min-w-[150px] min-h-[50px] cols-span-1 rounded-lg bg-green-600">
-    // //     Favorites
-    // //   </div> */}
-    // {" "}
-    // </main>
   );
 }
 
