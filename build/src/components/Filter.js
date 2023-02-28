@@ -53,7 +53,7 @@ const Filter = function (props) {
     return list
   };
 
-  // Nolan Walker and a lot of stack overflow helped me with handle Genre
+ // Nolan Walker helped me with this code.
   const handleGenre = (e) => {
     setSelectOption(e.target.value)
     props.setMovies( props.moviesData.map((movie) => {           // this grabs every movie checks if genre is null, creates search key value to search off of.
