@@ -16,6 +16,22 @@ const Filter = function (props) {
   // const [genreType, setGenreType] = React.useState([]);
   const [selectOption, setSelectOption] = React.useState('');
 
+
+  const handleSubmit = (event) => {
+    console.log("handle submit!!");
+  };
+
+  // const handleFilter = (e,flag) => {
+  //   if(flag == "Title") {
+  //   let newMovies = props.movies.filter( movie => movie.title.includes(flag));
+  //   props.setMovies(newMovies);
+  //   // pass {Title: e.target.value} to handle filter
+  //   }
+  //   // inside filter
+  //   // if genre exists and is not null OR
+
+  // }
+
   const handleTitle = (e) => {
     let newMovies = props.moviesData.filter((movie) =>
       movie.title.toLowerCase().includes(e.target.value.toLowerCase())
@@ -123,9 +139,20 @@ const Filter = function (props) {
   useEffect(() => {
   }, [dateRange]);
 
+  const toggleHide = () => {
+    setHidden(!hidden)
+  }
+
+// toggle visibility fade in animation derived from: https://biagio.dev/posts/tailwindcss-react-modal
+
   return (
-    <div className="row-span-2 w-full h-full min-w-[150px] min-h-[50px] rounded-lg bg-balck/25">
-      <form className="flex flex-col bg-black/50 text-white rounded-lg">
+    
+    <div className="row-span-2 w-full h-full min-w-[150px] min-h-[50px] rounded-lg ">
+      <button
+            className= {hidden ? "rounded-lg w-6 h-20 bg-white text-black" : "rounded-lg w-32 bg-white text-black"}
+            onClick={toggleHide}>
+            {hidden ? "→" : "Hide Filter"}</button>
+      <form className={`flex flex-col bg-black/50 text-white rounded-lg bg-black/25 ${hidden ? 'pointer-events-none opacity-0' : 'opacity-100' } transition-opacity duration-300 ease-in-out`}>
         <label>Movie Filter</label>
         <div className="flex flex-row w-full pt-1 pt-1">
           <input
