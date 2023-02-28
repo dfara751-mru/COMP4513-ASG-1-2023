@@ -21,7 +21,7 @@ const Home = (props) => {
     >
       <HeaderApp />
       <div></div>
-      <div className="row-span-3 w-full max-h-[300px] items-center justify-center mx-auto bg-red-900 rounded-md flex flex-col space-y-5">
+      <div className="row-span-3 w-full max-h-[300px] items-center justify-center mx-auto bg-black/75 rounded-md flex flex-col space-y-5">
         <label className="text-slate-50 font-mono font-bold italic text-xl" for="mtitle">TITLE:</label>
         <input className="rounded-md w-[300px]" onChange={handleInput}></input>
         <div className="flex space-x-5"><Link to="/build/browse" state={input}><button className="bg-slate-50 rounded-lg w-20 h-10 border-2 border-solid border-black font-mono" >Search</button></Link><Link to="/build/browse"><button className="bg-slate-50 rounded-lg w-40 h-10 border-2 border-solid border-black font-mono">Show All Movies</button></Link></div>

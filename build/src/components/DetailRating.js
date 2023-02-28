@@ -64,7 +64,7 @@ const DetailRating = props => {
 
         setRated(!rated);
 
-        console.log(props.id + " " + amount);
+        //console.log(props.id + " " + amount);
 
         props.ratings.push({id: props.id, amount: amount});
     }

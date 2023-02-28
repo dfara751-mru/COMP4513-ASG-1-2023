@@ -24,7 +24,7 @@ const SingleMovie = function (props) {
       <label><Link to="/build/Detail" state={props.movie}>Title: {props.title}</Link></label>
       <label>Release Date: {props.movie.release_date}</label>
       <label>Rating: {props.movie.ratings.average}</label>
-      <label className="flex-row-reverse"> Popularity:  {props.movie.ratings.popularity}
+      <label className="flex-row-reverse"> Popularity:  {props.movie.ratings.popularity.toFixed(1)}
       </label>
       </div>
       <div className="basis-1/4 flex flex-col ">

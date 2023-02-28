@@ -53,7 +53,7 @@ const Filter = function (props) {
     return list
   };
 
-  // Nolan Walker and a lot of stack overflow helped me with handle Genre
+ // Nolan Walker helped me with this code.
   const handleGenre = (e) => {
     setSelectOption(e.target.value)
     props.setMovies( props.moviesData.map((movie) => {           // this grabs every movie checks if genre is null, creates search key value to search off of.
@@ -152,7 +152,7 @@ const Filter = function (props) {
             className= {hidden ? "rounded-lg w-6 h-20 bg-white text-black" : "rounded-lg w-32 bg-white text-black"}
             onClick={toggleHide}>
             {hidden ? "→" : "Hide Filter"}</button>
-      <form className={`flex flex-col bg-black/50 text-white rounded-lg bg-black/25 ${hidden ? 'pointer-events-none opacity-0' : 'opacity-100' } transition-opacity duration-300 ease-in-out`}>
+      <form className={`flex flex-col bg-black/50 text-white rounded-lg  ${hidden ? 'pointer-events-none opacity-0' : 'opacity-100' } transition-opacity duration-300 ease-in-out`}>
         <label>Movie Filter</label>
         <div className="flex flex-row w-full pt-1 pt-1">
           <input

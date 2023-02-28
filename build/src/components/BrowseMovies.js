@@ -3,6 +3,7 @@ import Filter from "./Filter";
 import List from "./List";
 import Favorites from "./Favorites";
 import HeaderApp from "./HeaderApp";
+import Footer from "./Footer";
 import theatreImage from "../theatre.jpg";
 import { useLocation } from "react-router-dom"
 
@@ -47,6 +48,7 @@ const BrowseMovies = function (props) {
         setMovies={setMovies}
       />
       <Favorites favorites={props.favorites} setFavorites={props.setFavorites} removeFavorite={props.removeFavorite}/>
+      <Footer />
     </main>
   );
 };
