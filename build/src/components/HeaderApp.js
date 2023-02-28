@@ -60,6 +60,7 @@ const closeModal = () => {
             </div>
             <p className='font-mono '><strong>Third Party Code Sources:</strong></p>
             <ul>
+               <li> Loading GIF available under CCO 1.0 from: <a className="text-blue-800" href="https://commons.wikimedia.org/wiki/File:Youtube_loading_symbol_1_(wobbly).gif">https://commons.wikimedia.org</a></li>
                <li> Modal code modified from: <a className="text-blue-800" href="https://www.npmjs.com/package/react-modal">https://www.npmjs.com/</a></li>
                <li> Toggle visibility fade in animation derived from: <a className="text-blue-800" href="https://biagio.dev/posts/tailwindcss-react-modal">https://biagio.dev/</a></li>
                <li> Currency format code from: <a className="text-blue-800" href="https://stackoverflow.com/questions/55556221/how-do-you-format-a-number-to-currency-when-using-react-native-expohttps://www.npmjs.com/package/react-modal">https://stackoverflow.com/</a></li>
